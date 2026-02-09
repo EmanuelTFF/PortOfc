@@ -527,50 +527,55 @@
         }
 
         /* Nome da seção que aparece do lado */
-       .mobile-dot-label {
-    position: absolute;
-    right: 22px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(37, 99, 235, 0.15); /* Mais transparente */
-    color: #2563eb; /* Texto azul em vez de branco */
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 500; /* Menos negrito */
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    pointer-events: none;
-    z-index: 1000;
-    border: 1px solid rgba(37, 99, 235, 0.2); /* Borda sutil */
-    backdrop-filter: blur(4px);
-    min-width: 50px;
-    text-align: center;
-}
+        .mobile-dot-label {
+            position: absolute;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(37, 99, 235, 0.15);
+            /* Mais transparente */
+            color: #2563eb;
+            /* Texto azul em vez de branco */
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+            /* Menos negrito */
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            pointer-events: none;
+            z-index: 1000;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            /* Borda sutil */
+            backdrop-filter: blur(4px);
+            min-width: 50px;
+            text-align: center;
+        }
 
-/* Quando o dot está ativo, mostra o label */
-.mobile-dot.active .mobile-dot-label {
-    opacity: 1;
-    visibility: visible;
-}
+        /* Quando o dot está ativo, mostra o label */
+        .mobile-dot.active .mobile-dot-label {
+            opacity: 1;
+            visibility: visible;
+        }
 
-/* Opcional: efeito de fade-in suave */
-@keyframes fadeInLabel {
-    from {
-        opacity: 0;
-        transform: translateY(-50%) translateX(5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
-    }
-}
+        /* Opcional: efeito de fade-in suave */
+        @keyframes fadeInLabel {
+            from {
+                opacity: 0;
+                transform: translateY(-50%) translateX(5px);
+            }
 
-.mobile-dot.active .mobile-dot-label {
-    animation: fadeInLabel 0.3s ease forwards;
-}
+            to {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
+        }
+
+        .mobile-dot.active .mobile-dot-label {
+            animation: fadeInLabel 0.3s ease forwards;
+        }
     </style>
 
     <script>
@@ -1145,712 +1150,437 @@
         </div>
     </section>
 
-    <!-- Work Section -->
-<section class="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-gray-50 dark:bg-gray-900" id="work">
+   <!-- Work Section -->
+<section class="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-white" id="work">
     <div class="max-w-7xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-12 md:mb-16">
-            <div
-                class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-3">
-                <div class="w-3 h-3 rounded-full bg-blue-600 dark:bg-blue-400"></div>
+            <div class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 uppercase tracking-wider mb-3">
+                <div class="w-3 h-3 rounded-full bg-blue-600"></div>
                 Portfolio
             </div>
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4">
-                Meus <span class="text-blue-600 dark:text-blue-400">Projetos</span>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                Meus <span class="text-blue-600">Projetos</span>
             </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
                 Soluções criativas que transformam ideias em experiências digitais memoráveis
             </p>
         </div>
 
         <!-- Carrossel de Projetos -->
         <div class="relative">
-            <!-- Botões de navegação - SEMPRE VISÍVEIS -->
-            <button
-                class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 md:-translate-x-4 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-10 carousel-prev"
+            <!-- Botões de navegação -->
+            <button class="absolute left-0 top-1/2 -translate-y-1/2 
+                bg-white hover:bg-gray-50 border border-gray-200 
+                rounded-full w-10 h-10 md:w-12 md:h-12 
+                flex items-center justify-center 
+                shadow-lg transition-all duration-300 hover:shadow-xl z-20" 
                 id="carouselPrev">
-                <i class="fas fa-chevron-left text-gray-700 text-sm md:text-base"></i>
+                <i class="fas fa-chevron-left text-gray-700"></i>
             </button>
-            <button
-                class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-2 md:translate-x-4 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-10 carousel-next"
+            <button class="absolute right-0 top-1/2 -translate-y-1/2 
+                bg-white hover:bg-gray-50 border border-gray-200 
+                rounded-full w-10 h-10 md:w-12 md:h-12 
+                flex items-center justify-center 
+                shadow-lg transition-all duration-300 hover:shadow-xl z-20" 
                 id="carouselNext">
-                <i class="fas fa-chevron-right text-gray-700 text-sm md:text-base"></i>
+                <i class="fas fa-chevron-right text-gray-700"></i>
             </button>
 
             <!-- Container do Carrossel -->
-            <div class="carousel-container overflow-x-auto scroll-smooth pb-12 scrollbar-hide" id="projectsCarousel">
-                <div class="flex space-x-6 md:space-x-8 min-w-max px-4 md:px-8" id="projectsContainer">
-
+            <div class="overflow-hidden px-12" id="carouselContainer">
+                <div class="flex space-x-6 md:space-x-8 transition-transform duration-300 ease-in-out" id="projectsContainer">
+                    
                     <!-- Projeto 1: ViaBrasil -->
                     <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <!-- Seu conteúdo do projeto ViaBrasil aqui (mantenha igual) -->
-                        <div
-                            class="relative overflow-hidden rounded-2xl mb-6 transition-all duration-500 group-hover:shadow-2xl">
-                            <!-- Imagem com overlay gradiente -->
-                            <div class="relative h-[250px] md:h-[300px] overflow-hidden rounded-t-2xl">
-                                <!-- Gradiente de fundo como fallback -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700">
+                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                            <!-- Imagem -->
+                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100"></div>
+                                <div class="absolute inset-0 opacity-40">
+                                    <div class="absolute inset-0 bg-[url('image/image1.png')] bg-cover bg-center"></div>
                                 </div>
-
-                                <!-- Container para imagem com efeito de brilho -->
-                                <div
-                                    class="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-500">
-                                    <div class="absolute inset-0 bg-[url('image/image1.png')] bg-cover bg-center">
-                                    </div>
-                                </div>
-
-                                <!-- Efeitos visuais -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
-                                </div>
-                                <div
-                                    class="absolute top-4 right-4 w-24 h-24 bg-blue-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-                                <div
-                                    class="absolute bottom-4 left-4 w-32 h-32 bg-indigo-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-
-                                <!-- Badge e Overlay de Tecnologia -->
+                                <!-- Badge -->
                                 <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-4 py-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-900 dark:text-white shadow-lg">
+                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
                                         Site institucional
                                     </span>
                                 </div>
-
-                                <!-- Ícones de tecnologia flutuantes -->
-                                <div class="absolute bottom-4 right-4 flex gap-2 z-20">
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-html5 text-orange-500 text-lg"></i>
-                                    </div>
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-php text-indigo-500 text-lg"></i>
-                                    </div>
-                                </div>
                             </div>
 
-                            <!-- Conteúdo do Card -->
-                            <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-b-2xl">
+                            <!-- Conteúdo -->
+                            <div class="p-6">
                                 <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                                         ViaBrasil
                                     </h3>
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                                        <i class="fas fa-globe text-blue-600 dark:text-blue-400"></i>
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <i class="fas fa-globe text-blue-600"></i>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                                    Gestão completa de pedágio com agilidade, controle e transparência para
-                                    transportadoras.
+                                <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    Gestão completa de pedágio com agilidade, controle e transparência para transportadoras.
                                 </p>
 
                                 <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
                                         HTML/CSS
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-medium rounded-full">
                                         PHP
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
                                         MySQL
-                                    </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full">
-                                        JavaScript
                                     </span>
                                 </div>
 
-                                <div class="flex items-center justify-between">
-                                    <a href="https://www.gestaoviabrasil.com.br" target="_blank"
-                                        class="group/link inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300">
-                                        <span>Ver projeto completo</span>
-                                        <i
-                                            class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
-                                    </a>
-                                </div>
+                                <a href="https://www.gestaoviabrasil.com.br" target="_blank"
+                                    class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                                    <span>Ver projeto</span>
+                                    <i class="fas fa-arrow-right text-sm"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Projeto 2: Helia Hotel -->
                     <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <!-- Seu conteúdo do projeto Helia Hotel aqui (mantenha igual) -->
-                        <div
-                            class="relative overflow-hidden rounded-2xl mb-6 transition-all duration-500 group-hover:shadow-2xl">
-                            <!-- Imagem com overlay gradiente -->
-                            <div class="relative h-[250px] md:h-[300px] overflow-hidden rounded-t-2xl">
-                                <!-- Gradiente de fundo como fallback -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-600 to-green-700">
+                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                            <!-- Imagem -->
+                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-emerald-100"></div>
+                                <div class="absolute inset-0 opacity-40">
+                                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
                                 </div>
-
-                                <!-- Container para imagem com efeito de brilho -->
-                                <div
-                                    class="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-500">
-                                    <div
-                                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80')] bg-cover bg-center">
-                                    </div>
-                                </div>
-
-                                <!-- Efeitos visuais -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
-                                </div>
-                                <div
-                                    class="absolute top-4 left-4 w-20 h-20 bg-emerald-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-                                <div
-                                    class="absolute bottom-4 right-4 w-28 h-28 bg-teal-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-
-                                <!-- Badge e Overlay de Tecnologia -->
+                                <!-- Badge -->
                                 <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-4 py-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-900 dark:text-white shadow-lg">
+                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
                                         Mobile App
                                     </span>
                                 </div>
-
-                                <!-- Ícones de tecnologia flutuantes -->
-                                <div class="absolute bottom-4 right-4 flex gap-2 z-20">
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-react text-cyan-500 text-lg"></i>
-                                    </div>
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-database text-green-500 text-lg"></i>
-                                    </div>
-                                </div>
                             </div>
 
-                            <!-- Conteúdo do Card -->
-                            <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-b-2xl">
+                            <!-- Conteúdo -->
+                            <div class="p-6">
                                 <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
                                         Helia Hotel
                                     </h3>
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                                        <i class="fas fa-mobile-alt text-emerald-600 dark:text-emerald-400"></i>
+                                    <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+                                        <i class="fas fa-mobile-alt text-emerald-600"></i>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                                    Aplicativo de reservas de hotel com interface intuitiva, sistema de avaliações e
-                                    pagamentos integrados.
+                                <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    Aplicativo de reservas de hotel com interface intuitiva, sistema de avaliações e pagamentos integrados.
                                 </p>
 
                                 <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1.5 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
                                         React Native
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs font-medium rounded-full">
-                                        Expo
-                                    </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
                                         Supabase
-                                    </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded-full">
-                                        REST API
                                     </span>
                                 </div>
 
-                                <div class="flex items-center justify-between">
-                                    <a href="https://github.com/EmanuelTFF/helia.git" target="_blank"
-                                        class="group/link inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-medium hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors duration-300">
-                                        <span>Ver código fonte</span>
-                                        <i
-                                            class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
-                                    </a>
-                                </div>
+                                <a href="https://github.com/EmanuelTFF/helia.git" target="_blank"
+                                    class="inline-flex items-center gap-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors">
+                                    <span>Ver código fonte</span>
+                                    <i class="fas fa-arrow-right text-sm"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Projeto 3: Sonnus -->
                     <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <!-- Seu conteúdo do projeto Sonnus aqui (mantenha igual) -->
-                        <div
-                            class="relative overflow-hidden rounded-2xl mb-6 transition-all duration-500 group-hover:shadow-2xl">
-                            <!-- Imagem com overlay gradiente -->
-                            <div class="relative h-[250px] md:h-[300px] overflow-hidden rounded-t-2xl">
-                                <!-- Gradiente de fundo como fallback -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-purple-500 via-violet-600 to-indigo-700">
+                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                            <!-- Imagem -->
+                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100"></div>
+                                <div class="absolute inset-0 opacity-40">
+                                    <div class="absolute inset-0 bg-[url('image/image3.png')] bg-cover bg-center"></div>
                                 </div>
-
-                                <!-- Container para imagem com efeito de brilho -->
-                                <div
-                                    class="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-500">
-                                    <div class="absolute inset-0 bg-[url('image/image3.png')] bg-cover bg-center">
-                                    </div>
-                                </div>
-
-                                <!-- Efeitos visuais -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
-                                </div>
-                                <div
-                                    class="absolute top-6 right-6 w-16 h-16 bg-purple-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-                                <div
-                                    class="absolute bottom-6 left-6 w-20 h-20 bg-violet-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-
-                                <!-- Badge e Overlay de Tecnologia -->
+                                <!-- Badge -->
                                 <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-4 py-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-900 dark:text-white shadow-lg">
+                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
                                         Site institucional
                                     </span>
                                 </div>
-
-                                <!-- Ícones de tecnologia flutuantes -->
-                                <div class="absolute bottom-4 right-4 flex gap-2 z-20">
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-js text-yellow-500 text-lg"></i>
-                                    </div>
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-css3-alt text-blue-500 text-lg"></i>
-                                    </div>
-                                </div>
                             </div>
 
-                            <!-- Conteúdo do Card -->
-                            <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-b-2xl">
+                            <!-- Conteúdo -->
+                            <div class="p-6">
                                 <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
                                         Sonnus
                                     </h3>
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                                        <i class="fas fa-palette text-purple-600 dark:text-purple-400"></i>
+                                    <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                                        <i class="fas fa-palette text-purple-600"></i>
                                     </div>
                                 </div>
-                                <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                                    Especialistas em exames e tratamentos para distúrbios do sono e respiratórios,
-                                    com atendimento domiciliar.
+
+                                <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    Especialistas em exames e tratamentos para distúrbios do sono e respiratórios, com atendimento domiciliar.
                                 </p>
 
                                 <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
                                         HTML5
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-medium rounded-full">
                                         CSS3
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
                                         JavaScript
-                                    </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium rounded-full">
-                                        PHP
                                     </span>
                                 </div>
 
-                                <div class="flex items-center justify-between">
-                                    <a href="https://www.sonnusterapia.com.br" target="_blank"
-                                        class="group/link inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 font-medium hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-300">
-                                        <span>Ver projeto completo</span>
-                                        <i
-                                            class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
-                                    </a>
-                                </div>
+                                <a href="https://www.sonnusterapia.com.br" target="_blank"
+                                    class="inline-flex items-center gap-2 text-purple-600 font-medium hover:text-purple-700 transition-colors">
+                                    <span>Ver projeto</span>
+                                    <i class="fas fa-arrow-right text-sm"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Projeto 4: Planejar Agro -->
                     <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <!-- Seu conteúdo do projeto Planejar Agro aqui (mantenha igual) -->
-                        <div
-                            class="relative overflow-hidden rounded-2xl mb-6 transition-all duration-500 group-hover:shadow-2xl">
-                            <!-- Imagem com overlay gradiente -->
-                            <div class="relative h-[250px] md:h-[300px] overflow-hidden rounded-t-2xl">
-                                <!-- Gradiente de fundo como fallback -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-amber-500 via-orange-600 to-yellow-700">
+                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                            <!-- Imagem -->
+                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100"></div>
+                                <div class="absolute inset-0 opacity-40">
+                                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
                                 </div>
-
-                                <!-- Container para imagem com efeito de brilho -->
-                                <div
-                                    class="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-500">
-                                    <div
-                                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80')] bg-cover bg-center">
-                                    </div>
-                                </div>
-
-                                <!-- Efeitos visuais -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
-                                </div>
-                                <div
-                                    class="absolute top-8 left-8 w-14 h-14 bg-amber-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-                                <div
-                                    class="absolute bottom-8 right-8 w-18 h-18 bg-orange-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-
-                                <!-- Badge e Overlay de Tecnologia -->
+                                <!-- Badge -->
                                 <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-4 py-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-900 dark:text-white shadow-lg">
-                                        site institucional
+                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                        Site institucional
                                     </span>
-                                </div>
-
-                                <!-- Ícones de tecnologia flutuantes -->
-                                <div class="absolute bottom-4 right-4 flex gap-2 z-20">
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-html5 text-cyan-500 text-lg"></i>
-                                    </div>
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-js text-yellow-500 text-lg"></i>
-                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Conteúdo do Card -->
-                            <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-b-2xl">
+                            <!-- Conteúdo -->
+                            <div class="p-6">
                                 <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
                                         Planejar Agro
                                     </h3>
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-                                        <i class="fas fa-seedling text-amber-600 dark:text-amber-400"></i>
+                                    <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                                        <i class="fas fa-seedling text-amber-600"></i>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                                    Estratégia e organização para impulsionar a produtividade e a rentabilidade no
-                                    campo.
+                                <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    Estratégia e organização para impulsionar a produtividade e a rentabilidade no campo.
                                 </p>
 
                                 <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1.5 bg-orange-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
                                         HTML
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-blue-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
                                         CSS
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
                                         JavaScript
                                     </span>
                                 </div>
 
-                                <div class="flex items-center justify-between">
-                                    <a href="https://planejaragro.com.br" target="_blank"
-                                        class="group/link inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-medium hover:text-amber-700 dark:hover:text-amber-300 transition-colors duration-300">
-                                        <span>Ver projeto completo</span>
-                                        <i
-                                            class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
-                                    </a>
-                                </div>
+                                <a href="https://planejaragro.com.br" target="_blank"
+                                    class="inline-flex items-center gap-2 text-amber-600 font-medium hover:text-amber-700 transition-colors">
+                                    <span>Ver projeto</span>
+                                    <i class="fas fa-arrow-right text-sm"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Projeto: Drew Studio -->
                     <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <!-- Seu conteúdo do projeto Drew Studio aqui (mantenha igual) -->
-                        <div
-                            class="relative overflow-hidden rounded-2xl mb-6 transition-all duration-500 group-hover:shadow-2xl">
-                            <!-- Imagem com overlay gradiente -->
-                            <div class="relative h-[250px] md:h-[300px] overflow-hidden rounded-t-2xl">
-                                <!-- Gradiente de fundo criativo - tons de roxo/rosa/laranja -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
+                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                            <!-- Imagem -->
+                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-br from-pink-50 to-pink-100"></div>
+                                <div class="absolute inset-0 opacity-40">
+                                    <div class="absolute inset-0 bg-[url('image/image5.png')] bg-cover bg-center"></div>
                                 </div>
-
-                                <!-- Container para imagem -->
-                                <div
-                                    class="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-500">
-                                    <div class="absolute inset-0 bg-[url('image/image5.png')] bg-cover bg-center">
-                                    </div>
-                                </div>
-
-                                <!-- Efeitos visuais -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
-                                </div>
-                                <div
-                                    class="absolute top-8 left-8 w-14 h-14 bg-purple-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-                                <div
-                                    class="absolute bottom-8 right-8 w-18 h-18 bg-pink-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-
                                 <!-- Badge -->
                                 <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-4 py-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-900 dark:text-white shadow-lg">
+                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
                                         Projeto pessoal
                                     </span>
                                 </div>
-
-                                <!-- Ícones de tecnologia -->
-                                <div class="absolute bottom-4 right-4 flex gap-2 z-20">
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-html5 text-orange-500 text-lg"></i>
-                                    </div>
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-css3-alt text-blue-500 text-lg"></i>
-                                    </div>
-                                </div>
                             </div>
 
-                            <!-- Conteúdo do Card -->
-                            <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-b-2xl">
+                            <!-- Conteúdo -->
+                            <div class="p-6">
                                 <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
                                         Drew Studio
                                     </h3>
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                                        <i class="fas fa-wand-magic-sparkles text-purple-600 dark:text-purple-400"></i>
+                                    <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center">
+                                        <i class="fas fa-wand-magic-sparkles text-pink-600"></i>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                                    Agência especializada em transformar produtos em histórias visuais.
-                                    Fotografia, filmagem e design.
+                                <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    Agência especializada em transformar produtos em histórias visuais. Fotografia, filmagem e design.
                                 </p>
 
                                 <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1.5 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
                                         HTML
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
                                         CSS
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
                                         JavaScript
                                     </span>
                                 </div>
 
-                                <div class="flex items-center justify-between">
-                                    <a href="https://drewstudio.com" target="_blank"
-                                        class="group/link inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 font-medium hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-300">
-                                        <span>Ver projeto completo</span>
-                                        <i
-                                            class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
-                                    </a>
-                                </div>
+                                <a href="https://drewstudio.com" target="_blank"
+                                    class="inline-flex items-center gap-2 text-pink-600 font-medium hover:text-pink-700 transition-colors">
+                                    <span>Ver projeto</span>
+                                    <i class="fas fa-arrow-right text-sm"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Projeto 5: Infinity Tech -->
                     <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <!-- Seu conteúdo do projeto Infinity Tech aqui (mantenha igual) -->
-                        <div
-                            class="relative overflow-hidden rounded-2xl mb-6 transition-all duration-500 group-hover:shadow-2xl">
-                            <!-- Imagem com overlay gradiente -->
-                            <div class="relative h-[250px] md:h-[300px] overflow-hidden rounded-t-2xl">
-                                <!-- Gradiente de fundo como fallback -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-red-500 via-pink-600 to-rose-700">
+                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                            <!-- Imagem -->
+                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-br from-red-50 to-red-100"></div>
+                                <div class="absolute inset-0 opacity-40">
+                                    <div class="absolute inset-0 bg-[url('image/image4.png')] bg-cover bg-center"></div>
                                 </div>
-
-                                <!-- Container para imagem com efeito de brilho -->
-                                <div
-                                    class="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-500">
-                                    <div class="absolute inset-0 bg-[url('image/image4.png')] bg-cover bg-center">
-                                    </div>
-                                </div>
-
-                                <!-- Efeitos visuais -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
-                                </div>
-                                <div
-                                    class="absolute top-4 right-4 w-20 h-20 bg-red-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-                                <div
-                                    class="absolute bottom-4 left-4 w-24 h-24 bg-pink-500/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700">
-                                </div>
-
-                                <!-- Badge e Overlay de Tecnologia -->
+                                <!-- Badge -->
                                 <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-4 py-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-900 dark:text-white shadow-lg">
+                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
                                         Projeto escolar
                                     </span>
                                 </div>
-
-                                <!-- Ícones de tecnologia flutuantes -->
-                                <div class="absolute bottom-4 right-4 flex gap-2 z-20">
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fab fa-php text-indigo-500 text-lg"></i>
-                                    </div>
-                                    <div
-                                        class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-database text-green-500 text-lg"></i>
-                                    </div>
-                                </div>
                             </div>
 
-                            <!-- Conteúdo do Card -->
-                            <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-b-2xl">
+                            <!-- Conteúdo -->
+                            <div class="p-6">
                                 <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-red-600 transition-colors">
                                         Infinity Tech
                                     </h3>
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
-                                        <i class="fas fa-shopping-cart text-red-600 dark:text-red-400"></i>
+                                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                                        <i class="fas fa-shopping-cart text-red-600"></i>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                                    Plataforma e-commerce completa com sistema de avaliações, carrinho de compras e
-                                    painel administrativo.
+                                <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    Plataforma e-commerce completa com sistema de avaliações, carrinho de compras e painel administrativo.
                                 </p>
 
                                 <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1.5 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
                                         HTML/CSS
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-indigo-100 text-indigo-600 text-xs font-medium rounded-full">
                                         PHP
                                     </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-medium rounded-full">
+                                    <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
                                         MySQL
-                                    </span>
-                                    <span
-                                        class="px-3 py-1.5 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-medium rounded-full">
-                                        JavaScript
                                     </span>
                                 </div>
 
-                                <div class="flex items-center justify-between">
-                                    <a href="https://github.com/EmanuelTFF/infinity.git" target="_blank"
-                                        class="group/link inline-flex items-center gap-2 text-red-600 dark:text-red-400 font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors duration-300">
-                                        <span>Ver código fonte</span>
-                                        <i
-                                            class="fas fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
-                                    </a>
-                                </div>
+                                <a href="https://github.com/EmanuelTFF/infinity.git" target="_blank"
+                                    class="inline-flex items-center gap-2 text-red-600 font-medium hover:text-red-700 transition-colors">
+                                    <span>Ver código fonte</span>
+                                    <i class="fas fa-arrow-right text-sm"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-            <!-- Removi os dots (bolinhas) de navegação -->
-            
         </div>
     </div>
 </section>
 
 <script>
-    // Carrossel com setas laterais
     document.addEventListener('DOMContentLoaded', function () {
-        const carousel = document.getElementById('projectsCarousel');
+        const container = document.getElementById('projectsContainer');
         const prevBtn = document.getElementById('carouselPrev');
         const nextBtn = document.getElementById('carouselNext');
-        const projectsContainer = document.getElementById('projectsContainer');
-
-        if (!carousel || !projectsContainer) return;
-
-        // Configurar largura do card para cálculo
-        const getCardWidth = () => {
-            if (window.innerWidth < 768) {
-                return 280; // Largura do card mobile
-            } else if (window.innerWidth < 1024) {
-                return 450; // Largura do card tablet
-            } else {
-                return 500; // Largura do card desktop
-            }
-        };
-
-        // Configurar gap entre cards
-        const getGap = () => {
-            if (window.innerWidth < 768) {
-                return 24; // 6 = 1.5rem = 24px
-            } else {
-                return 32; // 8 = 2rem = 32px
-            }
-        };
-
-        // Função para navegar
-        function scrollCarousel(direction) {
-            const cardWidth = getCardWidth();
-            const gap = getGap();
-            const scrollAmount = cardWidth + gap;
+        
+        let currentPosition = 0;
+        
+        // Calcula o deslocamento baseado no tamanho da tela
+        function getScrollAmount() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth < 768) return 280 + 24; // card + gap
+            if (screenWidth < 1024) return 450 + 32;
+            return 500 + 32;
+        }
+        
+        // Desabilita botões quando necessário
+        function updateButtons() {
+            const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
+            prevBtn.disabled = currentPosition === 0;
+            nextBtn.disabled = currentPosition <= -maxScroll;
+        }
+        
+        // Função para mover o carrossel
+        function moveCarousel(direction) {
+            const scrollAmount = getScrollAmount();
+            const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
             
-            carousel.scrollBy({
-                left: direction * scrollAmount,
-                behavior: 'smooth'
-            });
+            // Calcula nova posição
+            let newPosition = currentPosition + (direction * scrollAmount);
+            
+            // Limita a posição
+            newPosition = Math.max(newPosition, -maxScroll);
+            newPosition = Math.min(newPosition, 0);
+            
+            // Aplica a transformação
+            currentPosition = newPosition;
+            container.style.transform = `translateX(${currentPosition}px)`;
+            
+            // Atualiza estado dos botões
+            updateButtons();
         }
-
-        // Botões de navegação
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                scrollCarousel(-1);
-            });
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                scrollCarousel(1);
-            });
-        }
-
-        // Remover funcionalidade de arrastar
-        carousel.style.cursor = 'default';
         
-        // Remover eventos de mouse/touch para arrastar
-        carousel.removeEventListener('mousedown', () => {});
-        carousel.removeEventListener('touchstart', () => {});
-        carousel.removeEventListener('touchmove', () => {});
+        // Event listeners para os botões
+        prevBtn.addEventListener('click', () => moveCarousel(1)); // + porque translateX é negativo
+        nextBtn.addEventListener('click', () => moveCarousel(-1));
         
-        // Adicionar indicador visual para as setas
-        prevBtn.style.display = 'flex';
-        nextBtn.style.display = 'flex';
+        // Atualiza botões no carregamento e no redimensionamento
+        updateButtons();
+        window.addEventListener('resize', function() {
+            // Recalcula posição baseada no novo tamanho
+            const cardWidth = window.innerWidth < 768 ? 280 : 
+                             window.innerWidth < 1024 ? 450 : 500;
+            const gap = window.innerWidth < 768 ? 24 : 32;
+            
+            // Reajusta posição atual
+            const currentIndex = Math.round(Math.abs(currentPosition) / (cardWidth + gap));
+            currentPosition = -currentIndex * (getScrollAmount());
+            
+            // Aplica nova posição
+            container.style.transform = `translateX(${currentPosition}px)`;
+            updateButtons();
+        });
+        
+        // Previne comportamento de arrastar
+        container.addEventListener('mousedown', (e) => e.preventDefault());
+        container.addEventListener('touchstart', (e) => e.preventDefault());
     });
 </script>
+
 
     <!-- Contact Section -->
     <!-- Contact Section - SEM ANIMAÇÕES -->
