@@ -310,6 +310,7 @@
             transition: all 0.3s ease;
             position: relative;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            top: 200px;
         }
 
         .mobile-dot:hover {
@@ -1150,436 +1151,507 @@
         </div>
     </section>
 
-   <!-- Work Section -->
-<section class="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-white" id="work">
-    <div class="max-w-7xl mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-12 md:mb-16">
-            <div class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 uppercase tracking-wider mb-3">
-                <div class="w-3 h-3 rounded-full bg-blue-600"></div>
-                Portfolio
+    <!-- Work Section -->
+    <section class="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-white" id="work">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12 md:mb-16">
+                <div
+                    class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 uppercase tracking-wider mb-3">
+                    <div class="w-3 h-3 rounded-full bg-blue-600"></div>
+                    Portfolio
+                </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                    Meus <span class="text-blue-600">Projetos</span>
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Soluções criativas que transformam ideias em experiências digitais memoráveis
+                </p>
             </div>
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                Meus <span class="text-blue-600">Projetos</span>
-            </h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                Soluções criativas que transformam ideias em experiências digitais memoráveis
-            </p>
-        </div>
 
-        <!-- Carrossel de Projetos -->
-        <div class="relative">
-            <!-- Botões de navegação -->
-            <button class="absolute left-0 top-1/2 -translate-y-1/2 
+            <!-- Carrossel de Projetos -->
+            <div class="relative">
+                <!-- Botões de navegação -->
+                <button class="absolute left-0 top-1/2 -translate-y-1/2 
                 bg-white hover:bg-gray-50 border border-gray-200 
                 rounded-full w-10 h-10 md:w-12 md:h-12 
                 flex items-center justify-center 
-                shadow-lg transition-all duration-300 hover:shadow-xl z-20" 
-                id="carouselPrev">
-                <i class="fas fa-chevron-left text-gray-700"></i>
-            </button>
-            <button class="absolute right-0 top-1/2 -translate-y-1/2 
+                shadow-lg transition-all duration-300 hover:shadow-xl z-20" id="carouselPrev">
+                    <i class="fas fa-chevron-left text-gray-700"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 -translate-y-1/2 
                 bg-white hover:bg-gray-50 border border-gray-200 
                 rounded-full w-10 h-10 md:w-12 md:h-12 
                 flex items-center justify-center 
-                shadow-lg transition-all duration-300 hover:shadow-xl z-20" 
-                id="carouselNext">
-                <i class="fas fa-chevron-right text-gray-700"></i>
-            </button>
+                shadow-lg transition-all duration-300 hover:shadow-xl z-20" id="carouselNext">
+                    <i class="fas fa-chevron-right text-gray-700"></i>
+                </button>
 
-            <!-- Container do Carrossel -->
-            <div class="overflow-hidden px-12" id="carouselContainer">
-                <div class="flex space-x-6 md:space-x-8 transition-transform duration-300 ease-in-out" id="projectsContainer">
-                    
-                    <!-- Projeto 1: ViaBrasil -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100"></div>
-                                <div class="absolute inset-0 opacity-40">
-                                    <div class="absolute inset-0 bg-[url('image/image1.png')] bg-cover bg-center"></div>
-                                </div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Site institucional
-                                    </span>
-                                </div>
-                            </div>
+                <!-- Container do Carrossel -->
+                <div class="overflow-hidden px-12" id="carouselContainer">
+                    <div class="flex space-x-6 md:space-x-8 transition-transform duration-300 ease-in-out"
+                        id="projectsContainer">
 
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                                        ViaBrasil
-                                    </h3>
-                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                                        <i class="fas fa-globe text-blue-600"></i>
+                        <!-- Projeto 1: ViaBrasil -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100"></div>
+                                    <div class="absolute inset-0 opacity-40">
+                                        <div class="absolute inset-0 bg-[url('image/image1.png')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Site institucional
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Gestão completa de pedágio com agilidade, controle e transparência para transportadoras.
-                                </p>
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                                            ViaBrasil
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                            <i class="fas fa-globe text-blue-600"></i>
+                                        </div>
+                                    </div>
 
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
-                                        HTML/CSS
-                                    </span>
-                                    <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-medium rounded-full">
-                                        PHP
-                                    </span>
-                                    <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
-                                        MySQL
-                                    </span>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Gestão completa de pedágio com agilidade, controle e transparência para
+                                        transportadoras.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
+                                            HTML/CSS
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-medium rounded-full">
+                                            PHP
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
+                                            MySQL
+                                        </span>
+                                    </div>
+
+                                    <a href="https://www.gestaoviabrasil.com.br" target="_blank"
+                                        class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                                        <span>Ver projeto</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
-
-                                <a href="https://www.gestaoviabrasil.com.br" target="_blank"
-                                    class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors">
-                                    <span>Ver projeto</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Projeto 2: Helia Hotel -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-emerald-100"></div>
-                                <div class="absolute inset-0 opacity-40">
-                                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
-                                </div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Mobile App
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
-                                        Helia Hotel
-                                    </h3>
-                                    <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                                        <i class="fas fa-mobile-alt text-emerald-600"></i>
+                        <!-- Projeto 2: Helia Hotel -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-emerald-100">
+                                    </div>
+                                    <div class="absolute inset-0 opacity-40">
+                                        <div
+                                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Mobile App
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Aplicativo de reservas de hotel com interface intuitiva, sistema de avaliações e pagamentos integrados.
-                                </p>
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                                            Helia Hotel
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+                                            <i class="fas fa-mobile-alt text-emerald-600"></i>
+                                        </div>
+                                    </div>
 
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
-                                        React Native
-                                    </span>
-                                    <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
-                                        Supabase
-                                    </span>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Aplicativo de reservas de hotel com interface intuitiva, sistema de avaliações e
+                                        pagamentos integrados.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
+                                            React Native
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
+                                            Supabase
+                                        </span>
+                                    </div>
+
+                                    <a href="https://github.com/EmanuelTFF/helia.git" target="_blank"
+                                        class="inline-flex items-center gap-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors">
+                                        <span>Ver código fonte</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
-
-                                <a href="https://github.com/EmanuelTFF/helia.git" target="_blank"
-                                    class="inline-flex items-center gap-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors">
-                                    <span>Ver código fonte</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Projeto 3: Sonnus -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100"></div>
-                                <div class="absolute inset-0 opacity-40">
-                                    <div class="absolute inset-0 bg-[url('image/image3.png')] bg-cover bg-center"></div>
-                                </div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Site institucional
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
-                                        Sonnus
-                                    </h3>
-                                    <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                                        <i class="fas fa-palette text-purple-600"></i>
+                        <!-- Projeto 3: Sonnus -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100"></div>
+                                    <div class="absolute inset-0 opacity-40">
+                                        <div class="absolute inset-0 bg-[url('image/image3.png')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Site institucional
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Especialistas em exames e tratamentos para distúrbios do sono e respiratórios, com atendimento domiciliar.
-                                </p>
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
+                                            Sonnus
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                                            <i class="fas fa-palette text-purple-600"></i>
+                                        </div>
+                                    </div>
 
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
-                                        HTML5
-                                    </span>
-                                    <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-medium rounded-full">
-                                        CSS3
-                                    </span>
-                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
-                                        JavaScript
-                                    </span>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Especialistas em exames e tratamentos para distúrbios do sono e respiratórios,
+                                        com atendimento domiciliar.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
+                                            HTML5
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-medium rounded-full">
+                                            CSS3
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
+                                            JavaScript
+                                        </span>
+                                    </div>
+
+                                    <a href="https://www.sonnusterapia.com.br" target="_blank"
+                                        class="inline-flex items-center gap-2 text-purple-600 font-medium hover:text-purple-700 transition-colors">
+                                        <span>Ver projeto</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
-
-                                <a href="https://www.sonnusterapia.com.br" target="_blank"
-                                    class="inline-flex items-center gap-2 text-purple-600 font-medium hover:text-purple-700 transition-colors">
-                                    <span>Ver projeto</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Projeto 4: Planejar Agro -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100"></div>
-                                <div class="absolute inset-0 opacity-40">
-                                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
-                                </div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Site institucional
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
-                                        Planejar Agro
-                                    </h3>
-                                    <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-                                        <i class="fas fa-seedling text-amber-600"></i>
+                        <!-- Projeto 4: Planejar Agro -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100"></div>
+                                    <div class="absolute inset-0 opacity-40">
+                                        <div
+                                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Site institucional
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Estratégia e organização para impulsionar a produtividade e a rentabilidade no campo.
-                                </p>
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
+                                            Planejar Agro
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                                            <i class="fas fa-seedling text-amber-600"></i>
+                                        </div>
+                                    </div>
 
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
-                                        HTML
-                                    </span>
-                                    <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
-                                        CSS
-                                    </span>
-                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
-                                        JavaScript
-                                    </span>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Estratégia e organização para impulsionar a produtividade e a rentabilidade no
+                                        campo.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
+                                            HTML
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
+                                            CSS
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
+                                            JavaScript
+                                        </span>
+                                    </div>
+
+                                    <a href="https://planejaragro.com.br" target="_blank"
+                                        class="inline-flex items-center gap-2 text-amber-600 font-medium hover:text-amber-700 transition-colors">
+                                        <span>Ver projeto</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
-
-                                <a href="https://planejaragro.com.br" target="_blank"
-                                    class="inline-flex items-center gap-2 text-amber-600 font-medium hover:text-amber-700 transition-colors">
-                                    <span>Ver projeto</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Projeto: Drew Studio -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-pink-50 to-pink-100"></div>
-                                <div class="absolute inset-0 opacity-40">
-                                    <div class="absolute inset-0 bg-[url('image/image5.png')] bg-cover bg-center"></div>
-                                </div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Projeto pessoal
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
-                                        Drew Studio
-                                    </h3>
-                                    <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center">
-                                        <i class="fas fa-wand-magic-sparkles text-pink-600"></i>
+                        <!-- Projeto: Drew Studio -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-pink-50 to-pink-100"></div>
+                                    <div class="absolute inset-0 opacity-40">
+                                        <div class="absolute inset-0 bg-[url('image/image5.png')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Projeto pessoal
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Agência especializada em transformar produtos em histórias visuais. Fotografia, filmagem e design.
-                                </p>
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
+                                            Drew Studio
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center">
+                                            <i class="fas fa-wand-magic-sparkles text-pink-600"></i>
+                                        </div>
+                                    </div>
 
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
-                                        HTML
-                                    </span>
-                                    <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
-                                        CSS
-                                    </span>
-                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
-                                        JavaScript
-                                    </span>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Agência especializada em transformar produtos em histórias visuais. Fotografia,
+                                        filmagem e design.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
+                                            HTML
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
+                                            CSS
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
+                                            JavaScript
+                                        </span>
+                                    </div>
+
+                                    <a href="https://drewstudio.com" target="_blank"
+                                        class="inline-flex items-center gap-2 text-pink-600 font-medium hover:text-pink-700 transition-colors">
+                                        <span>Ver projeto</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
-
-                                <a href="https://drewstudio.com" target="_blank"
-                                    class="inline-flex items-center gap-2 text-pink-600 font-medium hover:text-pink-700 transition-colors">
-                                    <span>Ver projeto</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Projeto 5: Infinity Tech -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-red-50 to-red-100"></div>
-                                <div class="absolute inset-0 opacity-40">
-                                    <div class="absolute inset-0 bg-[url('image/image4.png')] bg-cover bg-center"></div>
-                                </div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Projeto escolar
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-red-600 transition-colors">
-                                        Infinity Tech
-                                    </h3>
-                                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-                                        <i class="fas fa-shopping-cart text-red-600"></i>
+                        <!-- Projeto 5: Infinity Tech -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-red-50 to-red-100"></div>
+                                    <div class="absolute inset-0 opacity-40">
+                                        <div class="absolute inset-0 bg-[url('image/image4.png')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Projeto escolar
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Plataforma e-commerce completa com sistema de avaliações, carrinho de compras e painel administrativo.
-                                </p>
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-red-600 transition-colors">
+                                            Infinity Tech
+                                        </h3>
+                                        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                                            <i class="fas fa-shopping-cart text-red-600"></i>
+                                        </div>
+                                    </div>
 
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
-                                        HTML/CSS
-                                    </span>
-                                    <span class="px-3 py-1 bg-indigo-100 text-indigo-600 text-xs font-medium rounded-full">
-                                        PHP
-                                    </span>
-                                    <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
-                                        MySQL
-                                    </span>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Plataforma e-commerce completa com sistema de avaliações, carrinho de compras e
+                                        painel administrativo.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
+                                            HTML/CSS
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-100 text-indigo-600 text-xs font-medium rounded-full">
+                                            PHP
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
+                                            MySQL
+                                        </span>
+                                    </div>
+
+                                    <a href="https://github.com/EmanuelTFF/infinity.git" target="_blank"
+                                        class="inline-flex items-center gap-2 text-red-600 font-medium hover:text-red-700 transition-colors">
+                                        <span>Ver código fonte</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
-
-                                <a href="https://github.com/EmanuelTFF/infinity.git" target="_blank"
-                                    class="inline-flex items-center gap-2 text-red-600 font-medium hover:text-red-700 transition-colors">
-                                    <span>Ver código fonte</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const container = document.getElementById('projectsContainer');
-        const prevBtn = document.getElementById('carouselPrev');
-        const nextBtn = document.getElementById('carouselNext');
-        
-        let currentPosition = 0;
-        
-        // Calcula o deslocamento baseado no tamanho da tela
-        function getScrollAmount() {
-            const screenWidth = window.innerWidth;
-            if (screenWidth < 768) return 280 + 24; // card + gap
-            if (screenWidth < 1024) return 450 + 32;
-            return 500 + 32;
-        }
-        
-        // Desabilita botões quando necessário
-        function updateButtons() {
-            const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
-            prevBtn.disabled = currentPosition === 0;
-            nextBtn.disabled = currentPosition <= -maxScroll;
-        }
-        
-        // Função para mover o carrossel
-        function moveCarousel(direction) {
-            const scrollAmount = getScrollAmount();
-            const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
-            
-            // Calcula nova posição
-            let newPosition = currentPosition + (direction * scrollAmount);
-            
-            // Limita a posição
-            newPosition = Math.max(newPosition, -maxScroll);
-            newPosition = Math.min(newPosition, 0);
-            
-            // Aplica a transformação
-            currentPosition = newPosition;
-            container.style.transform = `translateX(${currentPosition}px)`;
-            
-            // Atualiza estado dos botões
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.getElementById('projectsContainer');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+
+            let currentPosition = 0;
+
+            // Calcula o deslocamento baseado no tamanho da tela
+            function getScrollAmount() {
+                const screenWidth = window.innerWidth;
+                if (screenWidth < 768) return 280 + 24; // card + gap
+                if (screenWidth < 1024) return 450 + 32;
+                return 500 + 32;
+            }
+
+            // Desabilita botões quando necessário
+            function updateButtons() {
+                const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
+                prevBtn.disabled = currentPosition === 0;
+                nextBtn.disabled = currentPosition <= -maxScroll;
+
+                // Aplica estilo quando desabilitado
+                if (prevBtn.disabled) {
+                    prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    prevBtn.classList.remove('hover:bg-gray-50', 'hover:shadow-xl');
+                } else {
+                    prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    prevBtn.classList.add('hover:bg-gray-50', 'hover:shadow-xl');
+                }
+
+                if (nextBtn.disabled) {
+                    nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    nextBtn.classList.remove('hover:bg-gray-50', 'hover:shadow-xl');
+                } else {
+                    nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    nextBtn.classList.add('hover:bg-gray-50', 'hover:shadow-xl');
+                }
+            }
+
+            // Função para mover o carrossel
+            function moveCarousel(direction) {
+                const scrollAmount = getScrollAmount();
+                const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
+
+                // Calcula nova posição
+                let newPosition = currentPosition + (direction * scrollAmount);
+
+                // Limita a posição
+                newPosition = Math.max(newPosition, -maxScroll);
+                newPosition = Math.min(newPosition, 0);
+
+                // Aplica a transformação
+                currentPosition = newPosition;
+                container.style.transform = `translateX(${currentPosition}px)`;
+
+                // Atualiza estado dos botões
+                updateButtons();
+            }
+
+            // Event listeners para os botões
+            prevBtn.addEventListener('click', () => moveCarousel(1));
+            nextBtn.addEventListener('click', () => moveCarousel(-1));
+
+            // Atualiza botões no carregamento e no redimensionamento
             updateButtons();
-        }
-        
-        // Event listeners para os botões
-        prevBtn.addEventListener('click', () => moveCarousel(1)); // + porque translateX é negativo
-        nextBtn.addEventListener('click', () => moveCarousel(-1));
-        
-        // Atualiza botões no carregamento e no redimensionamento
-        updateButtons();
-        window.addEventListener('resize', function() {
-            // Recalcula posição baseada no novo tamanho
-            const cardWidth = window.innerWidth < 768 ? 280 : 
-                             window.innerWidth < 1024 ? 450 : 500;
-            const gap = window.innerWidth < 768 ? 24 : 32;
-            
-            // Reajusta posição atual
-            const currentIndex = Math.round(Math.abs(currentPosition) / (cardWidth + gap));
-            currentPosition = -currentIndex * (getScrollAmount());
-            
-            // Aplica nova posição
-            container.style.transform = `translateX(${currentPosition}px)`;
-            updateButtons();
+            window.addEventListener('resize', function () {
+                // Recalcula posição baseada no novo tamanho
+                const cardWidth = window.innerWidth < 768 ? 280 :
+                    window.innerWidth < 1024 ? 450 : 500;
+                const gap = window.innerWidth < 768 ? 24 : 32;
+
+                // Reajusta posição atual
+                const currentIndex = Math.round(Math.abs(currentPosition) / (cardWidth + gap));
+                currentPosition = -currentIndex * (getScrollAmount());
+
+                // Aplica nova posição
+                container.style.transform = `translateX(${currentPosition}px)`;
+                updateButtons();
+            });
+
+            // REMOVI os event listeners que bloqueavam a rolagem
+            // Isso permite que a tela role normalmente quando tocamos nos cards
         });
-        
-        // Previne comportamento de arrastar
-        container.addEventListener('mousedown', (e) => e.preventDefault());
-        container.addEventListener('touchstart', (e) => e.preventDefault());
-    });
-</script>
+    </script>
 
 
     <!-- Contact Section -->
