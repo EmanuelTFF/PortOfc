@@ -21,8 +21,13 @@
 
     <style>
         :root {
-            --primary-blue: #2563eb;
+            --primary-blue: #3b82f6;
             --dark-bg: #0a0a0f;
+            --dark-bg-secondary: #111827;
+            --dark-text: #f3f4f6;
+            --dark-text-secondary: #9ca3af;
+            --dark-border: #374151;
+            --dark-card: #1f2937;
         }
 
         /* TELA DE CARREGAMENTO */
@@ -31,7 +36,7 @@
         .loading-screen {
             position: fixed;
             inset: 0;
-            background: #ffffff;
+            background: #0a0a0f;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -70,7 +75,7 @@
             width: 280px;
             max-width: 80%;
             height: 4px;
-            background: #e5e7eb;
+            background: #374151;
             border-radius: 50px;
             overflow: hidden;
         }
@@ -78,7 +83,7 @@
         .loading-bar {
             height: 4px;
             width: 0%;
-            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
             border-radius: 50px;
             transition: width 1.6s ease;
         }
@@ -122,7 +127,7 @@
                 position: fixed;
                 width: 12px;
                 height: 12px;
-                background: #000000;
+                background: #ffffff;
                 border-radius: 50%;
                 pointer-events: none;
                 z-index: 9999;
@@ -134,7 +139,7 @@
             .cursor-hover {
                 width: 24px;
                 height: 24px;
-                background: #2563eb;
+                background: #3b82f6;
                 mix-blend-mode: difference;
             }
         }
@@ -162,8 +167,8 @@
         body {
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            background: #ffffff;
-            color: #000000;
+            background: #0a0a0f;
+            color: #f3f4f6;
         }
 
         .font-display {
@@ -176,22 +181,22 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: transparent;
+            background: #111827;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(37, 99, 235, 0.8);
+            background: rgba(59, 130, 246, 0.8);
             border-radius: 9999px;
-            border: 3px solid #ffffff;
+            border: 3px solid #0a0a0f;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #2563eb;
+            background: #3b82f6;
         }
 
         /* Efeito de gradiente animado */
         .gradient-text {
-            background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa, #2563eb);
+            background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd, #3b82f6);
             background-size: 300% 100%;
             -webkit-background-clip: text;
             background-clip: text;
@@ -236,30 +241,30 @@
 
         /* Efeito de vidro */
         .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(31, 41, 55, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Menu com efeito glass */
         .glass-menu {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(17, 24, 39, 0.85);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
             transition: all 0.4s ease;
         }
 
         .glass-menu.scrolled {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(17, 24, 39, 0.95);
             backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         /* Menu mobile com glass */
         .glass-menu-mobile {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(17, 24, 39, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -297,7 +302,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(2px);
             z-index: 40;
             opacity: 0;
@@ -415,24 +420,24 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color: rgba(37, 99, 235, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            background-color: rgba(59, 130, 246, 0.3);
+            border: 2px solid rgba(31, 41, 55, 0.8);
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             top: 200px;
         }
 
         .mobile-dot:hover {
             transform: scale(1.2);
-            background-color: rgba(37, 99, 235, 0.5);
+            background-color: rgba(59, 130, 246, 0.5);
         }
 
         .mobile-dot.active {
-            background-color: #2563eb;
+            background-color: #3b82f6;
             transform: scale(1.3);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
 
         .mobile-dot::after {
@@ -441,7 +446,7 @@
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            background-color: #2563eb;
+            background-color: #3b82f6;
             color: white;
             padding: 4px 8px;
             border-radius: 4px;
@@ -570,7 +575,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shimmer 2s infinite;
         }
 
@@ -612,7 +617,7 @@
 
         /* Efeito nos dots */
         .active-dot {
-            background-color: #2563eb !important;
+            background-color: #3b82f6 !important;
             width: 8px !important;
             height: 8px !important;
         }
@@ -634,9 +639,9 @@
             right: 22px;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(37, 99, 235, 0.15);
+            background-color: rgba(59, 130, 246, 0.15);
             /* Mais transparente */
-            color: #2563eb;
+            color: #3b82f6;
             /* Texto azul em vez de branco */
             padding: 4px 8px;
             border-radius: 4px;
@@ -649,7 +654,7 @@
             transition: all 0.2s ease;
             pointer-events: none;
             z-index: 1000;
-            border: 1px solid rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             /* Borda sutil */
             backdrop-filter: blur(4px);
             min-width: 50px;
@@ -685,9 +690,14 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary': '#2563eb',
+                        'primary': '#3b82f6',
                         'primary-dark': '#1e40af',
                         'dark': '#0a0a0f',
+                        'dark-secondary': '#111827',
+                        'dark-text': '#f3f4f6',
+                        'dark-text-secondary': '#9ca3af',
+                        'dark-border': '#374151',
+                        'dark-card': '#1f2937',
                         'light': '#f8fafc'
                     },
                     fontFamily: {
@@ -710,7 +720,7 @@
     </script>
 </head>
 
-<body class="bg-white text-black">
+<body class="bg-dark text-dark-text">
     <!-- TELA DE CARREGAMENTO -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
@@ -734,24 +744,24 @@
     <header class="fixed top-0 left-0 w-full z-50 glass-menu" id="mainHeader">
         <div class="px-4 md:px-20 mobile-padding">
             <div class="flex justify-between items-center py-3 md:py-4">
-                <a href="#" class="text-lg md:text-xl font-display font-bold text-black z-50">Tonis</a>
+                <a href="#" class="text-lg md:text-xl font-display font-bold text-white z-50">Tonis</a>
 
                 <!-- Menu Desktop -->
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="#main"
-                        class="text-sm uppercase tracking-widest text-gray-600 hover:text-black underline-effect transition-colors duration-300">Home</a>
+                        class="text-sm uppercase tracking-widest text-dark-text-secondary hover:text-white underline-effect transition-colors duration-300">Home</a>
                     <a href="#about"
-                        class="text-sm uppercase tracking-widest text-gray-600 hover:text-black underline-effect transition-colors duration-300">Sobre</a>
+                        class="text-sm uppercase tracking-widest text-dark-text-secondary hover:text-white underline-effect transition-colors duration-300">Sobre</a>
                     <a href="#skills"
-                        class="text-sm uppercase tracking-widest text-gray-600 hover:text-black underline-effect transition-colors duration-300">Skills</a>
+                        class="text-sm uppercase tracking-widest text-dark-text-secondary hover:text-white underline-effect transition-colors duration-300">Skills</a>
                     <a href="#work"
-                        class="text-sm uppercase tracking-widest text-gray-600 hover:text-black underline-effect transition-colors duration-300">Projetos</a>
+                        class="text-sm uppercase tracking-widest text-dark-text-secondary hover:text-white underline-effect transition-colors duration-300">Projetos</a>
                     <a href="#contact"
-                        class="text-sm uppercase tracking-widest text-gray-600 hover:text-black underline-effect transition-colors duration-300">Contato</a>
+                        class="text-sm uppercase tracking-widest text-dark-text-secondary hover:text-white underline-effect transition-colors duration-300">Contato</a>
                 </nav>
 
                 <!-- Menu Mobile Button -->
-
+                
             </div>
         </div>
 
@@ -796,7 +806,7 @@
     <section class="min-h-screen flex items-center justify-center px-4 md:px-20 pt-20 md:pt-24 mobile-padding"
         id="main">
         <div class="w-full max-w-6xl mx-auto text-center">
-            <h2 class="text-base md:text-xl text-gray-600 mb-3 md:mb-4 font-light" data-aos="fade-up"
+            <h2 class="text-base md:text-xl text-dark-text-secondary mb-3 md:mb-4 font-light" data-aos="fade-up"
                 data-aos-offset="30">
                 Olá, eu sou
             </h2>
@@ -808,31 +818,31 @@
             <div class="h-16 md:h-20 overflow-hidden mb-6 md:mb-8" data-aos="fade-up" data-aos-delay="200"
                 data-aos-offset="30">
                 <div class="text-rotate">
-                    <h3 class="text-xl md:text-4xl text-gray-500 font-medium">Web Developer</h3>
-                    <h3 class="text-xl md:text-4xl text-gray-500 font-medium">Front-end Developer</h3>
-                    <h3 class="text-xl md:text-4xl text-gray-500 font-medium">Back-end Developer</h3>
+                    <h3 class="text-xl md:text-4xl text-dark-text-secondary font-medium">Web Developer</h3>
+                    <h3 class="text-xl md:text-4xl text-dark-text-secondary font-medium">Front-end Developer</h3>
+                    <h3 class="text-xl md:text-4xl text-dark-text-secondary font-medium">Back-end Developer</h3>
                 </div>
             </div>
 
             <div class="flex justify-center space-x-4 md:space-x-6" data-aos="fade-up" data-aos-delay="400"
                 data-aos-offset="30">
                 <a href="https://www.linkedin.com/in/emanuel-tonis-florz-filho-90139b292/"
-                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 group">
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-dark-border flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 group">
                     <i class="fab fa-linkedin-in text-base md:text-lg group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a href="https://www.instagram.com/no3lzin_/"
-                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 group">
+                <a href="https://www.instagram.com/toniss._/"
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-dark-border flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 group">
                     <i class="fab fa-instagram text-base md:text-lg group-hover:scale-110 transition-transform"></i>
                 </a>
                 <a href="https://github.com/EmanuelTFF"
-                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 group">
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-dark-border flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 group">
                     <i class="fab fa-github text-base md:text-lg group-hover:scale-110 transition-transform"></i>
                 </a>
             </div>
 
             <div class="mt-12 md:mt-16" data-aos="fade-up" data-aos-delay="500" data-aos-offset="30">
                 <a href="#about"
-                    class="inline-flex items-center text-xs md:text-sm uppercase tracking-widest text-gray-500 hover:text-black transition-colors duration-300 group">
+                    class="inline-flex items-center text-xs md:text-sm uppercase tracking-widest text-dark-text-secondary hover:text-white transition-colors duration-300 group">
                     <span class="mr-2">Explore meu trabalho</span>
                     <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform duration-300"></i>
                 </a>
@@ -849,7 +859,7 @@
                 <h1 class="text-3xl md:text-5xl font-display font-bold mb-6 md:mb-8">
                     Emanuel <span class="text-primary">Tonis Florz</span> Filho
                 </h1>
-                <p class="text-gray-500 text-lg md:text-xl max-w-3xl mx-auto">
+                <p class="text-dark-text-secondary text-lg md:text-xl max-w-3xl mx-auto">
                     Dev Full Stack
                 </p>
             </div>
@@ -858,16 +868,16 @@
             <div class="grid lg:grid-cols-2 gap-12 md:gap-20">
                 <!-- Coluna 1: Descrição -->
                 <div class="space-y-6" data-aos="fade-up" data-aos-offset="50">
-                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                        <h3 class="text-xl md:text-2xl font-display font-bold mb-6 text-gray-800 flex items-center">
+                    <div class="bg-dark-card rounded-2xl p-8 shadow-lg border border-dark-border">
+                        <h3 class="text-xl md:text-2xl font-display font-bold mb-6 text-white flex items-center">
                             <div class="w-3 h-8 bg-primary rounded-full mr-3"></div>
                             Minha Jornada
                         </h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
+                        <p class="text-dark-text-secondary leading-relaxed mb-6">
                             Técnico da área de TI, desenvolvedor focado em construir soluções criativas com código.
                             Tenho experiência em projetos com PHP, React Native, bancos de dados e APIs.
                         </p>
-                        <p class="text-gray-600 leading-relaxed">
+                        <p class="text-dark-text-secondary leading-relaxed">
                             Estou sempre aprendendo algo novo, buscando me aprimorar e encarar novos desafios
                             no mundo da programação.
                         </p>
@@ -876,22 +886,22 @@
                     <!-- Cards de Formação -->
                     <div class="grid grid-cols-2 gap-4">
                         <div
-                            class="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center hover:shadow-lg transition-shadow duration-300">
+                            class="bg-dark-card rounded-xl p-6 shadow-md border border-dark-border text-center hover:shadow-lg transition-shadow duration-300">
                             <div
                                 class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-graduation-cap text-primary text-xl"></i>
                             </div>
-                            <h4 class="font-bold text-gray-800 mb-1">Formação Técnica</h4>
-                            <p class="text-sm text-gray-600">Informática para Internet</p>
+                            <h4 class="font-bold text-white mb-1">Formação Técnica</h4>
+                            <p class="text-sm text-dark-text-secondary">Informática para Internet</p>
                         </div>
                         <div
-                            class="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center hover:shadow-lg transition-shadow duration-300">
+                            class="bg-dark-card rounded-xl p-6 shadow-md border border-dark-border text-center hover:shadow-lg transition-shadow duration-300">
                             <div
                                 class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-briefcase text-primary text-xl"></i>
                             </div>
-                            <h4 class="font-bold text-gray-800 mb-1">Experiência</h4>
-                            <p class="text-sm text-gray-600">Freelancer & Projetos Pessoais</p>
+                            <h4 class="font-bold text-white mb-1">Experiência</h4>
+                            <p class="text-sm text-dark-text-secondary">Freelancer & Projetos Pessoais</p>
                         </div>
                     </div>
                 </div>
@@ -899,47 +909,47 @@
                 <!-- Coluna 2: Detalhes & Skills -->
                 <div class="space-y-8" data-aos="fade-up" data-aos-delay="100" data-aos-offset="50">
                     <!-- Detalhes Pessoais -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                        <h3 class="text-xl md:text-2xl font-display font-bold mb-6 text-gray-800 flex items-center">
+                    <div class="bg-dark-card rounded-2xl p-8 shadow-lg border border-dark-border">
+                        <h3 class="text-xl md:text-2xl font-display font-bold mb-6 text-white flex items-center">
                             <div class="w-3 h-8 bg-primary rounded-full mr-3"></div>
                             Foco & Especialidades
                         </h3>
 
                         <div class="space-y-5">
                             <div
-                                class="flex items-start space-x-4 group hover:bg-gray-50 p-3 rounded-lg transition-all duration-300">
+                                class="flex items-start space-x-4 group hover:bg-dark-border p-3 rounded-lg transition-all duration-300">
                                 <div
                                     class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                                     <i class="fas fa-code text-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 mb-1">Desenvolvimento Full Stack</h4>
-                                    <p class="text-sm text-gray-600">Desenvolvimento completo de aplicações web e
+                                    <h4 class="font-bold text-white mb-1">Desenvolvimento Full Stack</h4>
+                                    <p class="text-sm text-dark-text-secondary">Desenvolvimento completo de aplicações web e
                                         mobile.</p>
                                 </div>
                             </div>
 
                             <div
-                                class="flex items-start space-x-4 group hover:bg-gray-50 p-3 rounded-lg transition-all duration-300">
+                                class="flex items-start space-x-4 group hover:bg-dark-border p-3 rounded-lg transition-all duration-300">
                                 <div
                                     class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                                     <i class="fas fa-mobile-alt text-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 mb-1">Aplicativos Mobile</h4>
-                                    <p class="text-sm text-gray-600">React Native para iOS e Android.</p>
+                                    <h4 class="font-bold text-white mb-1">Aplicativos Mobile</h4>
+                                    <p class="text-sm text-dark-text-secondary">React Native para iOS e Android.</p>
                                 </div>
                             </div>
 
                             <div
-                                class="flex items-start space-x-4 group hover:bg-gray-50 p-3 rounded-lg transition-all duration-300">
+                                class="flex items-start space-x-4 group hover:bg-dark-border p-3 rounded-lg transition-all duration-300">
                                 <div
                                     class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                                     <i class="fas fa-database text-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 mb-1">Banco de Dados & APIs</h4>
-                                    <p class="text-sm text-gray-600">MySQL, Supabase e REST APIs.</p>
+                                    <h4 class="font-bold text-white mb-1">Banco de Dados & APIs</h4>
+                                    <p class="text-sm text-dark-text-secondary">MySQL, Supabase e REST APIs.</p>
                                 </div>
                             </div>
                         </div>
@@ -947,7 +957,7 @@
 
                     <!-- CTA - Versão Minimalista -->
                     <a href="/CV.pdf" download
-                        class="group block bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        class="group block bg-dark-card rounded-2xl p-6 shadow-lg border border-dark-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                         <div class="flex items-center justify-between">
                             <div>
                                 <div class="flex items-center space-x-3 mb-2">
@@ -958,9 +968,9 @@
                                                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                         </svg>
                                     </div>
-                                    <h4 class="font-bold text-gray-800">Currículo PDF</h4>
+                                    <h4 class="font-bold text-white">Currículo PDF</h4>
                                 </div>
-                                <p class="text-sm text-gray-600">Clique para baixar minha trajetória profissional</p>
+                                <p class="text-sm text-dark-text-secondary">Clique para baixar minha trajetória profissional</p>
                             </div>
                             <svg class="w-5 h-5 text-primary transform group-hover:translate-x-1 transition-transform duration-300"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -975,21 +985,21 @@
 
             <!-- Stats/Highlights -->
             <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                <div class="text-center p-6 bg-dark-card rounded-2xl shadow-sm border border-dark-border">
                     <div class="text-3xl md:text-4xl font-display font-bold text-primary mb-2">5+</div>
-                    <p class="text-gray-600">Projetos Concluídos</p>
+                    <p class="text-dark-text-secondary">Projetos Concluídos</p>
                 </div>
-                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                <div class="text-center p-6 bg-dark-card rounded-2xl shadow-sm border border-dark-border">
                     <div class="text-3xl md:text-4xl font-display font-bold text-primary mb-2">12+</div>
-                    <p class="text-gray-600">Tecnologias Dominadas</p>
+                    <p class="text-dark-text-secondary">Tecnologias Dominadas</p>
                 </div>
-                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                <div class="text-center p-6 bg-dark-card rounded-2xl shadow-sm border border-dark-border">
                     <div class="text-3xl md:text-4xl font-display font-bold text-primary mb-2">2+</div>
-                    <p class="text-gray-600">Anos de Experiência</p>
+                    <p class="text-dark-text-secondary">Anos de Experiência</p>
                 </div>
-                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                <div class="text-center p-6 bg-dark-card rounded-2xl shadow-sm border border-dark-border">
                     <div class="text-3xl md:text-4xl font-display font-bold text-primary mb-2">∞</div>
-                    <p class="text-gray-600">Ideias para Criar</p>
+                    <p class="text-dark-text-secondary">Ideias para Criar</p>
                 </div>
             </div>
         </div>
@@ -997,9 +1007,9 @@
 
     <!-- Skills Section -->
     <!-- Skills Section Modernizada -->
-    <section class="py-12 md:py-32 px-4 md:px-20 bg-gray-50 mobile-padding" id="skills">
+    <section class="py-12 md:py-32 px-4 md:px-20 bg-dark-secondary mobile-padding" id="skills">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl md:text-5xl font-display font-bold text-center mb-8 md:mb-16">
+            <h2 class="text-2xl md:text-5xl font-display font-bold text-center mb-8 md:mb-16 text-white">
                 Minhas <span class="text-primary">Skills</span>
             </h2>
 
@@ -1008,13 +1018,13 @@
                 <!-- HTML -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mb-4">
                             <i class="fab fa-html5 text-3xl text-orange-600"></i>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">HTML</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">HTML</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-orange-500 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1024,13 +1034,13 @@
                 <!-- CSS -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4">
                             <i class="fab fa-css3-alt text-3xl text-blue-600"></i>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">CSS</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">CSS</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-blue-500 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1040,13 +1050,13 @@
                 <!-- JavaScript -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
                             <i class="fab fa-js text-3xl text-yellow-600"></i>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">JavaScript</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">JavaScript</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-yellow-500 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1056,13 +1066,13 @@
                 <!-- PHP -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-4">
                             <i class="fab fa-php text-3xl text-purple-600"></i>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">PHP</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">PHP</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-purple-500 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1072,13 +1082,13 @@
                 <!-- MySQL -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-teal-100 flex items-center justify-center mb-4">
                             <i class="fas fa-database text-3xl text-teal-600"></i>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">MySQL</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">MySQL</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-teal-500 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1088,13 +1098,13 @@
                 <!-- Laravel -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-4">
                             <i class="fab fa-laravel text-3xl text-red-600"></i>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">Laravel</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">Laravel</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-red-500 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1104,13 +1114,13 @@
                 <!-- Git/GitHub -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
                             <i class="fab fa-git-alt text-3xl text-gray-800"></i>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">Git/GitHub</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">Git/GitHub</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-gray-800 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1120,7 +1130,7 @@
                 <!-- Next.js -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-black flex items-center justify-center mb-4">
                             <svg class="w-8 h-8" fill="white" viewBox="0 0 15 15">
                                 <path fill-rule="evenodd"
@@ -1128,9 +1138,9 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">Next.js</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">Next.js</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-black skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1140,13 +1150,13 @@
                 <!-- React -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-cyan-100 flex items-center justify-center mb-4">
                             <i class="fab fa-react text-3xl text-cyan-600"></i>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">React</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">React</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-cyan-500 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1156,13 +1166,13 @@
                 <!-- React Native -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-4">
                             <i class="fab fa-react text-3xl text-blue-400"></i>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">React Native</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">React Native</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-blue-400 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1172,13 +1182,13 @@
                 <!-- Expo -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-gray-900 flex items-center justify-center mb-4">
                             <span class="text-white text-xl font-bold">EXPO</span>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">Expo</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">Expo</h3>
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-gray-900 skill-progress" data-width="100"></div>
                             </div>
                         </div>
@@ -1188,7 +1198,7 @@
                 <!-- PHPMailer - Versão Alternativa -->
                 <div class="skill-card group">
                     <div
-                        class="relative overflow-hidden rounded-2xl bg-white p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+                        class="relative overflow-hidden rounded-2xl bg-dark-card p-6 h-full flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-dark-border">
                         <div class="w-16 h-16 rounded-full bg-indigo-50 flex items-center justify-center mb-4">
                             <div class="relative">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -1199,10 +1209,10 @@
                                 <span class="absolute -bottom-1 -right-1 text-xs font-bold text-indigo-800">PHP</span>
                             </div>
                         </div>
-                        <h3 class="text-lg font-display font-bold text-gray-800 mb-2">PHPMailer</h3>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">PHPMailer</h3>
 
                         <div class="w-full mt-2">
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-2 bg-dark-border rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-600 skill-progress"
                                     data-width="100"></div>
                             </div>
@@ -1217,11 +1227,11 @@
     <!-- Services Section -->
     <section class="py-12 md:py-32 px-4 md:px-20 mobile-padding" id="services">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl md:text-5xl font-display font-bold text-center mb-4 md:mb-6" data-aos="fade-up"
+            <h2 class="text-2xl md:text-5xl font-display font-bold text-center mb-4 md:mb-6 text-white" data-aos="fade-up"
                 data-aos-offset="50">
                 Meus <span class="text-primary">Serviços</span>
             </h2>
-            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-8 md:mb-16 text-sm md:text-base" data-aos="fade-up"
+            <p class="text-dark-text-secondary text-center max-w-2xl mx-auto mb-8 md:mb-16 text-sm md:text-base" data-aos="fade-up"
                 data-aos-delay="100" data-aos-offset="50">
                 Ofereço soluções completas para o desenvolvimento web, com foco em sites modernos, responsivos e
                 funcionais.
@@ -1235,8 +1245,8 @@
                         class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 md:mb-6">
                         <i class="fas fa-code text-xl md:text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-display font-bold mb-3 md:mb-4">Desenvolvimento Web</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                    <h3 class="text-xl md:text-2xl font-display font-bold mb-3 md:mb-4 text-white">Desenvolvimento Web</h3>
+                    <p class="text-dark-text-secondary leading-relaxed text-sm md:text-base">
                         Criação de sites institucionais, landing pages e sistemas personalizados com PHP, MySQL, HTML,
                         CSS e JavaScript.
                     </p>
@@ -1249,8 +1259,8 @@
                         class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 md:mb-6">
                         <i class="fas fa-server text-xl md:text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-display font-bold mb-3 md:mb-4">Integrações e Back-end</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                    <h3 class="text-xl md:text-2xl font-display font-bold mb-3 md:mb-4 text-white">Integrações e Back-end</h3>
+                    <p class="text-dark-text-secondary leading-relaxed text-sm md:text-base">
                         APIs REST, autenticação de usuários, armazenamento de dados, CRUDs e integração com bancos de
                         dados relacionais e não-relacionais.
                     </p>
@@ -1260,19 +1270,19 @@
     </section>
 
     <!-- Work Section -->
-    <section class="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-white" id="work">
+    <section class="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-dark" id="work">
         <div class="max-w-7xl mx-auto">
             <!-- Header -->
             <div class="text-center mb-12 md:mb-16">
                 <div
-                    class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 uppercase tracking-wider mb-3">
-                    <div class="w-3 h-3 rounded-full bg-blue-600"></div>
+                    class="inline-flex items-center gap-2 text-sm font-medium text-primary uppercase tracking-wider mb-3">
+                    <div class="w-3 h-3 rounded-full bg-primary"></div>
                     Portfolio
                 </div>
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                    Meus <span class="text-blue-600">Projetos</span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+                    Meus <span class="text-primary">Projetos</span>
                 </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                <p class="text-lg text-dark-text-secondary max-w-3xl mx-auto">
                     Soluções criativas que transformam ideias em experiências digitais memoráveis
                 </p>
             </div>
@@ -1281,18 +1291,18 @@
             <div class="relative">
                 <!-- Botões de navegação -->
                 <button class="absolute left-0 top-1/2 -translate-y-1/2 
-                    bg-white hover:bg-gray-50 border border-gray-200 
+                    bg-dark-card hover:bg-dark-border border border-dark-border 
                     rounded-full w-10 h-10 md:w-12 md:h-12 
                     flex items-center justify-center 
                     shadow-lg transition-all duration-300 hover:shadow-xl z-20" id="carouselPrev">
-                    <i class="fas fa-chevron-left text-gray-700"></i>
+                    <i class="fas fa-chevron-left text-dark-text"></i>
                 </button>
                 <button class="absolute right-0 top-1/2 -translate-y-1/2 
-                    bg-white hover:bg-gray-50 border border-gray-200 
+                    bg-dark-card hover:bg-dark-border border border-dark-border 
                     rounded-full w-10 h-10 md:w-12 md:h-12 
                     flex items-center justify-center 
                     shadow-lg transition-all duration-300 hover:shadow-xl z-20" id="carouselNext">
-                    <i class="fas fa-chevron-right text-gray-700"></i>
+                    <i class="fas fa-chevron-right text-dark-text"></i>
                 </button>
 
                 <!-- Container do Carrossel -->
@@ -1303,7 +1313,7 @@
                         <!-- Projeto 1: ViaBrasil -->
                         <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
                             <div
-                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                class="group bg-dark-card border border-dark-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
                                 <!-- Imagem -->
                                 <div class="relative h-[200px] md:h-[250px] overflow-hidden">
                                     <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100"></div>
@@ -1314,11 +1324,11 @@
                                         </div>
                                     </div>
                                     <!-- Overlay sutil -->
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                                     <!-- Badge -->
                                     <div class="absolute top-4 left-4 z-20">
                                         <span
-                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            class="inline-block px-3 py-1.5 bg-dark-card/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-white shadow">
                                             Site institucional
                                         </span>
                                     </div>
@@ -1328,16 +1338,16 @@
                                 <div class="p-6">
                                     <div class="flex items-start justify-between mb-4">
                                         <h3
-                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                                            class="text-xl md:text-2xl font-bold text-white group-hover:text-primary transition-colors">
                                             ViaBrasil
                                         </h3>
                                         <div
                                             class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                                            <i class="fas fa-globe text-blue-600"></i>
+                                            <i class="fas fa-globe text-primary"></i>
                                         </div>
                                     </div>
 
-                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    <p class="text-dark-text-secondary mb-6 text-sm md:text-base">
                                         Gestão completa de pedágio com agilidade, controle e transparência para
                                         transportadoras.
                                     </p>
@@ -1358,7 +1368,7 @@
                                     </div>
 
                                     <a href="https://www.gestaoviabrasil.com.br" target="_blank"
-                                        class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                                        class="inline-flex items-center gap-2 text-primary font-medium hover:text-blue-400 transition-colors">
                                         <span>Ver projeto</span>
                                         <i class="fas fa-arrow-right text-sm"></i>
                                     </a>
@@ -1369,7 +1379,7 @@
                         <!-- Projeto 2: Helia Hotel -->
                         <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
                             <div
-                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                class="group bg-dark-card border border-dark-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
                                 <!-- Imagem -->
                                 <div class="relative h-[200px] md:h-[250px] overflow-hidden">
                                     <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-emerald-100">
@@ -1381,11 +1391,11 @@
                                         </div>
                                     </div>
                                     <!-- Overlay sutil -->
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                                     <!-- Badge -->
                                     <div class="absolute top-4 left-4 z-20">
                                         <span
-                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            class="inline-block px-3 py-1.5 bg-dark-card/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-white shadow">
                                             Mobile App
                                         </span>
                                     </div>
@@ -1395,7 +1405,7 @@
                                 <div class="p-6">
                                     <div class="flex items-start justify-between mb-4">
                                         <h3
-                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                                            class="text-xl md:text-2xl font-bold text-white group-hover:text-emerald-600 transition-colors">
                                             Helia Hotel
                                         </h3>
                                         <div
@@ -1404,7 +1414,7 @@
                                         </div>
                                     </div>
 
-                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    <p class="text-dark-text-secondary mb-6 text-sm md:text-base">
                                         Aplicativo de reservas de hotel com interface intuitiva, sistema de avaliações e
                                         pagamentos integrados.
                                     </p>
@@ -1421,7 +1431,7 @@
                                     </div>
 
                                     <a href="https://github.com/EmanuelTFF/helia.git" target="_blank"
-                                        class="inline-flex items-center gap-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors">
+                                        class="inline-flex items-center gap-2 text-emerald-600 font-medium hover:text-emerald-500 transition-colors">
                                         <span>Ver código fonte</span>
                                         <i class="fas fa-arrow-right text-sm"></i>
                                     </a>
@@ -1432,7 +1442,7 @@
                         <!-- Projeto 3: Sonnus -->
                         <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
                             <div
-                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                class="group bg-dark-card border border-dark-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
                                 <!-- Imagem -->
                                 <div class="relative h-[200px] md:h-[250px] overflow-hidden">
                                     <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100"></div>
@@ -1443,11 +1453,11 @@
                                         </div>
                                     </div>
                                     <!-- Overlay sutil -->
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                                     <!-- Badge -->
                                     <div class="absolute top-4 left-4 z-20">
                                         <span
-                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            class="inline-block px-3 py-1.5 bg-dark-card/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-white shadow">
                                             Site institucional
                                         </span>
                                     </div>
@@ -1457,7 +1467,7 @@
                                 <div class="p-6">
                                     <div class="flex items-start justify-between mb-4">
                                         <h3
-                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
+                                            class="text-xl md:text-2xl font-bold text-white group-hover:text-purple-600 transition-colors">
                                             Sonnus
                                         </h3>
                                         <div
@@ -1466,7 +1476,7 @@
                                         </div>
                                     </div>
 
-                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    <p class="text-dark-text-secondary mb-6 text-sm md:text-base">
                                         Especialistas em exames e tratamentos para distúrbios do sono e respiratórios,
                                         com atendimento domiciliar.
                                     </p>
@@ -1487,7 +1497,7 @@
                                     </div>
 
                                     <a href="https://www.sonnusterapia.com.br" target="_blank"
-                                        class="inline-flex items-center gap-2 text-purple-600 font-medium hover:text-purple-700 transition-colors">
+                                        class="inline-flex items-center gap-2 text-purple-600 font-medium hover:text-purple-500 transition-colors">
                                         <span>Ver projeto</span>
                                         <i class="fas fa-arrow-right text-sm"></i>
                                     </a>
@@ -1498,7 +1508,7 @@
                         <!-- Projeto 4: Planejar Agro -->
                         <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
                             <div
-                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                class="group bg-dark-card border border-dark-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
                                 <!-- Imagem -->
                                 <div class="relative h-[200px] md:h-[250px] overflow-hidden">
                                     <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100"></div>
@@ -1509,11 +1519,11 @@
                                         </div>
                                     </div>
                                     <!-- Overlay sutil -->
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                                     <!-- Badge -->
                                     <div class="absolute top-4 left-4 z-20">
                                         <span
-                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            class="inline-block px-3 py-1.5 bg-dark-card/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-white shadow">
                                             Site institucional
                                         </span>
                                     </div>
@@ -1523,7 +1533,7 @@
                                 <div class="p-6">
                                     <div class="flex items-start justify-between mb-4">
                                         <h3
-                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
+                                            class="text-xl md:text-2xl font-bold text-white group-hover:text-amber-600 transition-colors">
                                             Planejar Agro
                                         </h3>
                                         <div
@@ -1532,7 +1542,7 @@
                                         </div>
                                     </div>
 
-                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    <p class="text-dark-text-secondary mb-6 text-sm md:text-base">
                                         Estratégia e organização para impulsionar a produtividade e a rentabilidade no
                                         campo.
                                     </p>
@@ -1553,7 +1563,7 @@
                                     </div>
 
                                     <a href="https://planejaragro.com.br" target="_blank"
-                                        class="inline-flex items-center gap-2 text-amber-600 font-medium hover:text-amber-700 transition-colors">
+                                        class="inline-flex items-center gap-2 text-amber-600 font-medium hover:text-amber-500 transition-colors">
                                         <span>Ver projeto</span>
                                         <i class="fas fa-arrow-right text-sm"></i>
                                     </a>
@@ -1564,7 +1574,7 @@
                         <!-- Projeto: Drew Studio -->
                         <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
                             <div
-                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                class="group bg-dark-card border border-dark-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
                                 <!-- Imagem -->
                                 <div class="relative h-[200px] md:h-[250px] overflow-hidden">
                                     <div class="absolute inset-0 bg-gradient-to-br from-pink-50 to-pink-100"></div>
@@ -1575,11 +1585,11 @@
                                         </div>
                                     </div>
                                     <!-- Overlay sutil -->
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                                     <!-- Badge -->
                                     <div class="absolute top-4 left-4 z-20">
                                         <span
-                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            class="inline-block px-3 py-1.5 bg-dark-card/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-white shadow">
                                             Projeto pessoal
                                         </span>
                                     </div>
@@ -1589,7 +1599,7 @@
                                 <div class="p-6">
                                     <div class="flex items-start justify-between mb-4">
                                         <h3
-                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
+                                            class="text-xl md:text-2xl font-bold text-white group-hover:text-pink-600 transition-colors">
                                             Drew Studio
                                         </h3>
                                         <div
@@ -1598,7 +1608,7 @@
                                         </div>
                                     </div>
 
-                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    <p class="text-dark-text-secondary mb-6 text-sm md:text-base">
                                         Agência especializada em transformar produtos em histórias visuais. Fotografia,
                                         filmagem e design.
                                     </p>
@@ -1619,7 +1629,7 @@
                                     </div>
 
                                     <a href="https://drewstudio.com" target="_blank"
-                                        class="inline-flex items-center gap-2 text-pink-600 font-medium hover:text-pink-700 transition-colors">
+                                        class="inline-flex items-center gap-2 text-pink-600 font-medium hover:text-pink-500 transition-colors">
                                         <span>Ver projeto</span>
                                         <i class="fas fa-arrow-right text-sm"></i>
                                     </a>
@@ -1630,7 +1640,7 @@
                         <!-- Projeto 5: Infinity Tech -->
                         <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
                             <div
-                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                class="group bg-dark-card border border-dark-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
                                 <!-- Imagem -->
                                 <div class="relative h-[200px] md:h-[250px] overflow-hidden">
                                     <div class="absolute inset-0 bg-gradient-to-br from-red-50 to-red-100"></div>
@@ -1641,11 +1651,11 @@
                                         </div>
                                     </div>
                                     <!-- Overlay sutil -->
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                                     <!-- Badge -->
                                     <div class="absolute top-4 left-4 z-20">
                                         <span
-                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            class="inline-block px-3 py-1.5 bg-dark-card/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-white shadow">
                                             Projeto escolar
                                         </span>
                                     </div>
@@ -1655,7 +1665,7 @@
                                 <div class="p-6">
                                     <div class="flex items-start justify-between mb-4">
                                         <h3
-                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-red-600 transition-colors">
+                                            class="text-xl md:text-2xl font-bold text-white group-hover:text-red-600 transition-colors">
                                             Infinity Tech
                                         </h3>
                                         <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
@@ -1663,7 +1673,7 @@
                                         </div>
                                     </div>
 
-                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                    <p class="text-dark-text-secondary mb-6 text-sm md:text-base">
                                         Plataforma e-commerce completa com sistema de avaliações, carrinho de compras e
                                         painel administrativo.
                                     </p>
@@ -1684,7 +1694,7 @@
                                     </div>
 
                                     <a href="https://github.com/EmanuelTFF/infinity.git" target="_blank"
-                                        class="inline-flex items-center gap-2 text-red-600 font-medium hover:text-red-700 transition-colors">
+                                        class="inline-flex items-center gap-2 text-red-600 font-medium hover:text-red-500 transition-colors">
                                         <span>Ver código fonte</span>
                                         <i class="fas fa-arrow-right text-sm"></i>
                                     </a>
@@ -1722,18 +1732,18 @@
                 // Aplica estilo quando desabilitado
                 if (prevBtn.disabled) {
                     prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                    prevBtn.classList.remove('hover:bg-gray-50', 'hover:shadow-xl');
+                    prevBtn.classList.remove('hover:bg-dark-border', 'hover:shadow-xl');
                 } else {
                     prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                    prevBtn.classList.add('hover:bg-gray-50', 'hover:shadow-xl');
+                    prevBtn.classList.add('hover:bg-dark-border', 'hover:shadow-xl');
                 }
 
                 if (nextBtn.disabled) {
                     nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                    nextBtn.classList.remove('hover:bg-gray-50', 'hover:shadow-xl');
+                    nextBtn.classList.remove('hover:bg-dark-border', 'hover:shadow-xl');
                 } else {
                     nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                    nextBtn.classList.add('hover:bg-gray-50', 'hover:shadow-xl');
+                    nextBtn.classList.add('hover:bg-dark-border', 'hover:shadow-xl');
                 }
             }
 
@@ -1785,7 +1795,7 @@
     <!-- Contact Section - SEM ANIMAÇÕES -->
     <section class="py-12 md:py-32 px-4 md:px-20 mobile-padding" id="contact">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl md:text-5xl font-display font-bold text-center mb-8 md:mb-16">
+            <h2 class="text-2xl md:text-5xl font-display font-bold text-center mb-8 md:mb-16 text-white">
                 Entre em <span class="text-primary">Contato</span>
             </h2>
 
@@ -1796,8 +1806,8 @@
                         class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 md:mb-6">
                         <i class="fas fa-map-marker-alt text-xl md:text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-lg md:text-xl font-display font-bold mb-1 md:mb-2">Localização</h3>
-                    <p class="text-gray-600 text-sm md:text-base">Joinville, Brasil</p>
+                    <h3 class="text-lg md:text-xl font-display font-bold mb-1 md:mb-2 text-white">Localização</h3>
+                    <p class="text-dark-text-secondary text-sm md:text-base">Joinville, Brasil</p>
                 </div>
 
                 <!-- Card 2 -->
@@ -1806,8 +1816,8 @@
                         class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 md:mb-6">
                         <i class="fas fa-phone text-xl md:text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-lg md:text-xl font-display font-bold mb-1 md:mb-2">Telefone</h3>
-                    <p class="text-gray-600 text-sm md:text-base">+55 (47) 99711-8735</p>
+                    <h3 class="text-lg md:text-xl font-display font-bold mb-1 md:mb-2 text-white">Telefone</h3>
+                    <p class="text-dark-text-secondary text-sm md:text-base">+55 (47) 99711-8735</p>
                 </div>
 
                 <!-- Card 3 -->
@@ -1816,37 +1826,37 @@
                         class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 md:mb-6">
                         <i class="fas fa-envelope text-xl md:text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-lg md:text-xl font-display font-bold mb-1 md:mb-2">Email</h3>
-                    <p class="text-gray-600 text-sm md:text-base break-all">etonisflorzfilho@gmail.com</p>
+                    <h3 class="text-lg md:text-xl font-display font-bold mb-1 md:mb-2 text-white">Email</h3>
+                    <p class="text-dark-text-secondary text-sm md:text-base break-all">toniscontact001@gmail.com</p>
                 </div>
             </div>
 
             <!-- Redes Sociais -->
-            <div class="flex justify-center space-x-6 md:space-x-8 border-t border-gray-200 pt-8 md:pt-16">
+            <div class="flex justify-center space-x-6 md:space-x-8 border-t border-dark-border pt-8 md:pt-16">
                 <a href="https://www.linkedin.com/in/emanuel-tonis-florz-filho-90139b292/"
-                    class="text-gray-600 hover:text-primary transition-colors duration-300 text-base md:text-lg">
+                    class="text-dark-text-secondary hover:text-primary transition-colors duration-300 text-base md:text-lg">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://www.instagram.com/no3lzin_/"
-                    class="text-gray-600 hover:text-primary transition-colors duration-300 text-base md:text-lg">
+                <a href="https://www.instagram.com/toniss._/"
+                    class="text-dark-text-secondary hover:text-primary transition-colors duration-300 text-base md:text-lg">
                     <i class="fab fa-instagram"></i>
                 </a>
                 <a href="https://github.com/EmanuelTFF"
-                    class="text-gray-600 hover:text-primary transition-colors duration-300 text-base md:text-lg">
+                    class="text-dark-text-secondary hover:text-primary transition-colors duration-300 text-base md:text-lg">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
         </div>
     </section>
     <!-- Footer -->
-    <footer class="py-6 md:py-8 px-4 md:px-20 bg-gray-50 mobile-padding">
+    <footer class="py-6 md:py-8 px-4 md:px-20 bg-dark-secondary mobile-padding">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-3 md:mb-0">
-                    <span class="text-lg md:text-xl font-display font-bold">Emanuel Tonis Florz Filho</span>
+                    <span class="text-lg md:text-xl font-display font-bold text-white">Emanuel Tonis Florz Filho</span>
                 </div>
-                <div class="text-gray-600 text-xs md:text-sm text-center md:text-left">
-                    <p>© 2024 Todos os direitos reservados.</p>
+                <div class="text-dark-text-secondary text-xs md:text-sm text-center md:text-left">
+                    <p>© 2026 Todos os direitos reservados.</p>
                 </div>
             </div>
         </div>
