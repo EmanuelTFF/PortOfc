@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="Image/logo-semfundo.png" type="image/x-icon">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,6 +24,93 @@
             --primary-blue: #2563eb;
             --dark-bg: #0a0a0f;
         }
+
+        /* TELA DE CARREGAMENTO */
+        /* ===== LOADING SCREEN ===== */
+
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loading-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        /* LOGO RESPONSIVA */
+        .loading-logo {
+            width: 20px;
+            /* tamanho ideal desktop */
+            max-width: 60vw;
+            /* nunca passa da tela no mobile */
+            height: auto;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        /* BARRA */
+        .loading-bar-container {
+            width: 280px;
+            max-width: 80%;
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            border-radius: 50px;
+            transition: width 1.6s ease;
+        }
+
+        /* MOBILE AJUSTE FINO */
+        @media (max-width: 480px) {
+            .loading-logo {
+                width: px;
+            }
+
+            .loading-bar-container {
+                height: 3px;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.85;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
 
         /* Cursor personalizado SOMENTE para desktop */
         @media (min-width: 769px) {
@@ -59,6 +147,15 @@
 
             * {
                 cursor: auto !important;
+            }
+
+            .loading-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .loading-bar-container {
+                width: 250px;
             }
         }
 
@@ -477,16 +574,6 @@
             animation: shimmer 2s infinite;
         }
 
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
         /* Efeito hover nos cards */
         .skill-card:hover .skill-progress {
             transform: scaleX(1.05);
@@ -624,6 +711,19 @@
 </head>
 
 <body class="bg-white text-black">
+    <!-- TELA DE CARREGAMENTO -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <img style="width: 600px;" src="Image/logo-inicial.png" alt="Logo" class="loading-logo">
+
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- Cursor Personalizado - APENAS DESKTOP -->
     <div class="custom-cursor"></div>
 
@@ -634,7 +734,7 @@
     <header class="fixed top-0 left-0 w-full z-50 glass-menu" id="mainHeader">
         <div class="px-4 md:px-20 mobile-padding">
             <div class="flex justify-between items-center py-3 md:py-4">
-                <a href="#" class="text-lg md:text-xl font-display font-bold text-black z-50">EmanuelFilho</a>
+                <a href="#" class="text-lg md:text-xl font-display font-bold text-black z-50">Tonis</a>
 
                 <!-- Menu Desktop -->
                 <nav class="hidden md:flex items-center space-x-8">
@@ -651,12 +751,26 @@
                 </nav>
 
                 <!-- Menu Mobile Button -->
-            
+
             </div>
         </div>
 
         <!-- Menu Mobile com Glass - Z-INDEX AUMENTADO -->
-       
+        <div class="fixed top-0 right-0 w-64 h-full glass-menu-mobile shadow-2xl transform translate-x-full transition-transform duration-300 z-50 md:hidden"
+            id="mobileMenu">
+            <div class="flex flex-col items-center justify-center h-full space-y-6 py-8">
+                <a href="#main" class="text-lg font-medium hover:text-primary transition-colors duration-300 py-2"
+                    onclick="closeMenu()">Home</a>
+                <a href="#about" class="text-lg font-medium hover:text-primary transition-colors duration-300 py-2"
+                    onclick="closeMenu()">Sobre</a>
+                <a href="#skills" class="text-lg font-medium hover:text-primary transition-colors duration-300 py-2"
+                    onclick="closeMenu()">Skills</a>
+                <a href="#work" class="text-lg font-medium hover:text-primary transition-colors duration-300 py-2"
+                    onclick="closeMenu()">Projetos</a>
+                <a href="#contact" class="text-lg font-medium hover:text-primary transition-colors duration-300 py-2"
+                    onclick="closeMenu()">Contato</a>
+            </div>
+        </div>
     </header>
 
     <!-- Navegação Vertical para Mobile (Scroll Spy) -->
@@ -688,7 +802,7 @@
             </h2>
             <h1 class="text-3xl md:text-7xl lg:text-8xl font-display font-black mb-6 md:mb-8 gradient-text"
                 data-aos="fade-up" data-aos-delay="100" data-aos-offset="30">
-                Emanuel Filho
+                Emanuel Tonis
             </h1>
 
             <div class="h-16 md:h-20 overflow-hidden mb-6 md:mb-8" data-aos="fade-up" data-aos-delay="200"
@@ -699,12 +813,6 @@
                     <h3 class="text-xl md:text-4xl text-gray-500 font-medium">Back-end Developer</h3>
                 </div>
             </div>
-
-            <p class="text-gray-600 max-w-2xl mx-auto mb-8 md:mb-12 text-base md:text-lg" data-aos="fade-up"
-                data-aos-delay="300" data-aos-offset="30">
-                Desenvolvedor focado em criar soluções criativas com código. Transformando ideias em experiências
-                digitais incríveis.
-            </p>
 
             <div class="flex justify-center space-x-4 md:space-x-6" data-aos="fade-up" data-aos-delay="400"
                 data-aos-offset="30">
@@ -1152,521 +1260,525 @@
     </section>
 
     <!-- Work Section -->
-<section class="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-white" id="work">
-    <div class="max-w-7xl mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-12 md:mb-16">
-            <div
-                class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 uppercase tracking-wider mb-3">
-                <div class="w-3 h-3 rounded-full bg-blue-600"></div>
-                Portfolio
+    <section class="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-white" id="work">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12 md:mb-16">
+                <div
+                    class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 uppercase tracking-wider mb-3">
+                    <div class="w-3 h-3 rounded-full bg-blue-600"></div>
+                    Portfolio
+                </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                    Meus <span class="text-blue-600">Projetos</span>
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Soluções criativas que transformam ideias em experiências digitais memoráveis
+                </p>
             </div>
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                Meus <span class="text-blue-600">Projetos</span>
-            </h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                Soluções criativas que transformam ideias em experiências digitais memoráveis
-            </p>
-        </div>
 
-        <!-- Carrossel de Projetos -->
-        <div class="relative">
-            <!-- Botões de navegação -->
-            <button class="absolute left-0 top-1/2 -translate-y-1/2 
-                bg-white hover:bg-gray-50 border border-gray-200 
-                rounded-full w-10 h-10 md:w-12 md:h-12 
-                flex items-center justify-center 
-                shadow-lg transition-all duration-300 hover:shadow-xl z-20" id="carouselPrev">
-                <i class="fas fa-chevron-left text-gray-700"></i>
-            </button>
-            <button class="absolute right-0 top-1/2 -translate-y-1/2 
-                bg-white hover:bg-gray-50 border border-gray-200 
-                rounded-full w-10 h-10 md:w-12 md:h-12 
-                flex items-center justify-center 
-                shadow-lg transition-all duration-300 hover:shadow-xl z-20" id="carouselNext">
-                <i class="fas fa-chevron-right text-gray-700"></i>
-            </button>
+            <!-- Carrossel de Projetos -->
+            <div class="relative">
+                <!-- Botões de navegação -->
+                <button class="absolute left-0 top-1/2 -translate-y-1/2 
+                    bg-white hover:bg-gray-50 border border-gray-200 
+                    rounded-full w-10 h-10 md:w-12 md:h-12 
+                    flex items-center justify-center 
+                    shadow-lg transition-all duration-300 hover:shadow-xl z-20" id="carouselPrev">
+                    <i class="fas fa-chevron-left text-gray-700"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 -translate-y-1/2 
+                    bg-white hover:bg-gray-50 border border-gray-200 
+                    rounded-full w-10 h-10 md:w-12 md:h-12 
+                    flex items-center justify-center 
+                    shadow-lg transition-all duration-300 hover:shadow-xl z-20" id="carouselNext">
+                    <i class="fas fa-chevron-right text-gray-700"></i>
+                </button>
 
-            <!-- Container do Carrossel -->
-            <div class="overflow-hidden px-12" id="carouselContainer">
-                <div class="flex space-x-6 md:space-x-8 transition-transform duration-300 ease-in-out"
-                    id="projectsContainer">
+                <!-- Container do Carrossel -->
+                <div class="overflow-hidden px-12" id="carouselContainer">
+                    <div class="flex space-x-6 md:space-x-8 transition-transform duration-300 ease-in-out"
+                        id="projectsContainer">
 
-                    <!-- Projeto 1: ViaBrasil -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div
-                            class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100"></div>
-                                <!-- Imagem de estrada/highway para ViaBrasil -->
-                                <div class="absolute inset-0">
-                                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                        <!-- Projeto 1: ViaBrasil -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100"></div>
+                                    <!-- Imagem de estrada/highway para ViaBrasil -->
+                                    <div class="absolute inset-0">
+                                        <div
+                                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Overlay sutil -->
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Site institucional
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                                        ViaBrasil
-                                    </h3>
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                                        <i class="fas fa-globe text-blue-600"></i>
+                                    <!-- Overlay sutil -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Site institucional
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Gestão completa de pedágio com agilidade, controle e transparência para
-                                    transportadoras.
-                                </p>
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                                            ViaBrasil
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                            <i class="fas fa-globe text-blue-600"></i>
+                                        </div>
+                                    </div>
 
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
-                                        HTML/CSS
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-medium rounded-full">
-                                        PHP
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
-                                        MySQL
-                                    </span>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Gestão completa de pedágio com agilidade, controle e transparência para
+                                        transportadoras.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
+                                            HTML/CSS
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-medium rounded-full">
+                                            PHP
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
+                                            MySQL
+                                        </span>
+                                    </div>
+
+                                    <a href="https://www.gestaoviabrasil.com.br" target="_blank"
+                                        class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                                        <span>Ver projeto</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
-
-                                <a href="https://www.gestaoviabrasil.com.br" target="_blank"
-                                    class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors">
-                                    <span>Ver projeto</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Projeto 2: Helia Hotel -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div
-                            class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-emerald-100">
-                                </div>
-                                <!-- Imagem de hotel luxuoso para Helia Hotel -->
-                                <div class="absolute inset-0">
-                                    <div
-                                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                        <!-- Projeto 2: Helia Hotel -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-emerald-100">
                                     </div>
-                                </div>
-                                <!-- Overlay sutil -->
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Mobile App
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
-                                        Helia Hotel
-                                    </h3>
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                                        <i class="fas fa-mobile-alt text-emerald-600"></i>
+                                    <!-- Imagem de hotel luxuoso para Helia Hotel -->
+                                    <div class="absolute inset-0">
+                                        <div
+                                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Overlay sutil -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Mobile App
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Aplicativo de reservas de hotel com interface intuitiva, sistema de avaliações e
-                                    pagamentos integrados.
-                                </p>
-
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
-                                        React Native
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
-                                        Supabase
-                                    </span>
-                                </div>
-
-                                <a href="https://github.com/EmanuelTFF/helia.git" target="_blank"
-                                    class="inline-flex items-center gap-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors">
-                                    <span>Ver código fonte</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Projeto 3: Sonnus -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div
-                            class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100"></div>
-                                <!-- Imagem relacionada a sono/descanso para Sonnus -->
-                                <div class="absolute inset-0">
-                                    <div class="absolute inset-0 bg-[url('https://ep-cms-td-conteudodoc-prd-cdfqcebge4fub7hv.a01.azurefd.net/cms-wordpress/wp-content/uploads/2023/06/54745.0.jpg')] bg-cover bg-center">
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                                            Helia Hotel
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+                                            <i class="fas fa-mobile-alt text-emerald-600"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Overlay sutil -->
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Site institucional
-                                    </span>
-                                </div>
-                            </div>
 
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
-                                        Sonnus
-                                    </h3>
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                                        <i class="fas fa-palette text-purple-600"></i>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Aplicativo de reservas de hotel com interface intuitiva, sistema de avaliações e
+                                        pagamentos integrados.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
+                                            React Native
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
+                                            Supabase
+                                        </span>
                                     </div>
+
+                                    <a href="https://github.com/EmanuelTFF/helia.git" target="_blank"
+                                        class="inline-flex items-center gap-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors">
+                                        <span>Ver código fonte</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
-
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Especialistas em exames e tratamentos para distúrbios do sono e respiratórios,
-                                    com atendimento domiciliar.
-                                </p>
-
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
-                                        HTML5
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-medium rounded-full">
-                                        CSS3
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
-                                        JavaScript
-                                    </span>
-                                </div>
-
-                                <a href="https://www.sonnusterapia.com.br" target="_blank"
-                                    class="inline-flex items-center gap-2 text-purple-600 font-medium hover:text-purple-700 transition-colors">
-                                    <span>Ver projeto</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Projeto 4: Planejar Agro -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div
-                            class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100"></div>
-                                <!-- Imagem de agricultura/plantação para Planejar Agro -->
-                                <div class="absolute inset-0">
-                                    <div
-                                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                        <!-- Projeto 3: Sonnus -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100"></div>
+                                    <!-- Imagem relacionada a sono/descanso para Sonnus -->
+                                    <div class="absolute inset-0">
+                                        <div
+                                            class="absolute inset-0 bg-[url('https://ep-cms-td-conteudodoc-prd-cdfqcebge4fub7hv.a01.azurefd.net/cms-wordpress/wp-content/uploads/2023/06/54745.0.jpg')] bg-cover bg-center">
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Overlay sutil -->
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Site institucional
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
-                                        Planejar Agro
-                                    </h3>
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-                                        <i class="fas fa-seedling text-amber-600"></i>
+                                    <!-- Overlay sutil -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Site institucional
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Estratégia e organização para impulsionar a produtividade e a rentabilidade no
-                                    campo.
-                                </p>
-
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
-                                        HTML
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
-                                        CSS
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
-                                        JavaScript
-                                    </span>
-                                </div>
-
-                                <a href="https://planejaragro.com.br" target="_blank"
-                                    class="inline-flex items-center gap-2 text-amber-600 font-medium hover:text-amber-700 transition-colors">
-                                    <span>Ver projeto</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Projeto: Drew Studio -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div
-                            class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-pink-50 to-pink-100"></div>
-                                <!-- Imagem de estúdio/criatividade para Drew Studio -->
-                                <div class="absolute inset-0">
-                                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
+                                            Sonnus
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                                            <i class="fas fa-palette text-purple-600"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Overlay sutil -->
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Projeto pessoal
-                                    </span>
-                                </div>
-                            </div>
 
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
-                                        Drew Studio
-                                    </h3>
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center">
-                                        <i class="fas fa-wand-magic-sparkles text-pink-600"></i>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Especialistas em exames e tratamentos para distúrbios do sono e respiratórios,
+                                        com atendimento domiciliar.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
+                                            HTML5
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-medium rounded-full">
+                                            CSS3
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
+                                            JavaScript
+                                        </span>
                                     </div>
+
+                                    <a href="https://www.sonnusterapia.com.br" target="_blank"
+                                        class="inline-flex items-center gap-2 text-purple-600 font-medium hover:text-purple-700 transition-colors">
+                                        <span>Ver projeto</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
-
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Agência especializada em transformar produtos em histórias visuais. Fotografia,
-                                    filmagem e design.
-                                </p>
-
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
-                                        HTML
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
-                                        CSS
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
-                                        JavaScript
-                                    </span>
-                                </div>
-
-                                <a href="https://drewstudio.com" target="_blank"
-                                    class="inline-flex items-center gap-2 text-pink-600 font-medium hover:text-pink-700 transition-colors">
-                                    <span>Ver projeto</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Projeto 5: Infinity Tech -->
-                    <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
-                        <div
-                            class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                            <!-- Imagem -->
-                            <div class="relative h-[200px] md:h-[250px] overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-red-50 to-red-100"></div>
-                                <!-- Imagem de tecnologia/e-commerce para Infinity Tech -->
-                                <div class="absolute inset-0">
-                                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                        <!-- Projeto 4: Planejar Agro -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100"></div>
+                                    <!-- Imagem de agricultura/plantação para Planejar Agro -->
+                                    <div class="absolute inset-0">
+                                        <div
+                                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Overlay sutil -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Site institucional
+                                        </span>
                                     </div>
                                 </div>
-                                <!-- Overlay sutil -->
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                                <!-- Badge -->
-                                <div class="absolute top-4 left-4 z-20">
-                                    <span
-                                        class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
-                                        Projeto escolar
-                                    </span>
+
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
+                                            Planejar Agro
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                                            <i class="fas fa-seedling text-amber-600"></i>
+                                        </div>
+                                    </div>
+
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Estratégia e organização para impulsionar a produtividade e a rentabilidade no
+                                        campo.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs font-medium rounded-full">
+                                            HTML
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
+                                            CSS
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
+                                            JavaScript
+                                        </span>
+                                    </div>
+
+                                    <a href="https://planejaragro.com.br" target="_blank"
+                                        class="inline-flex items-center gap-2 text-amber-600 font-medium hover:text-amber-700 transition-colors">
+                                        <span>Ver projeto</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Conteúdo -->
-                            <div class="p-6">
-                                <div class="flex items-start justify-between mb-4">
-                                    <h3
-                                        class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-red-600 transition-colors">
-                                        Infinity Tech
-                                    </h3>
-                                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-                                        <i class="fas fa-shopping-cart text-red-600"></i>
+                        <!-- Projeto: Drew Studio -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-pink-50 to-pink-100"></div>
+                                    <!-- Imagem de estúdio/criatividade para Drew Studio -->
+                                    <div class="absolute inset-0">
+                                        <div
+                                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Overlay sutil -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Projeto pessoal
+                                        </span>
                                     </div>
                                 </div>
 
-                                <p class="text-gray-600 mb-6 text-sm md:text-base">
-                                    Plataforma e-commerce completa com sistema de avaliações, carrinho de compras e
-                                    painel administrativo.
-                                </p>
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors">
+                                            Drew Studio
+                                        </h3>
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center">
+                                            <i class="fas fa-wand-magic-sparkles text-pink-600"></i>
+                                        </div>
+                                    </div>
 
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    <span
-                                        class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
-                                        HTML/CSS
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-indigo-100 text-indigo-600 text-xs font-medium rounded-full">
-                                        PHP
-                                    </span>
-                                    <span
-                                        class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
-                                        MySQL
-                                    </span>
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Agência especializada em transformar produtos em histórias visuais. Fotografia,
+                                        filmagem e design.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
+                                            HTML
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
+                                            CSS
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
+                                            JavaScript
+                                        </span>
+                                    </div>
+
+                                    <a href="https://drewstudio.com" target="_blank"
+                                        class="inline-flex items-center gap-2 text-pink-600 font-medium hover:text-pink-700 transition-colors">
+                                        <span>Ver projeto</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projeto 5: Infinity Tech -->
+                        <div class="w-[280px] md:w-[450px] lg:w-[500px] flex-shrink-0">
+                            <div
+                                class="group bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                                <!-- Imagem -->
+                                <div class="relative h-[200px] md:h-[250px] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-red-50 to-red-100"></div>
+                                    <!-- Imagem de tecnologia/e-commerce para Infinity Tech -->
+                                    <div class="absolute inset-0">
+                                        <div
+                                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center">
+                                        </div>
+                                    </div>
+                                    <!-- Overlay sutil -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <!-- Badge -->
+                                    <div class="absolute top-4 left-4 z-20">
+                                        <span
+                                            class="inline-block px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-900 shadow">
+                                            Projeto escolar
+                                        </span>
+                                    </div>
                                 </div>
 
-                                <a href="https://github.com/EmanuelTFF/infinity.git" target="_blank"
-                                    class="inline-flex items-center gap-2 text-red-600 font-medium hover:text-red-700 transition-colors">
-                                    <span>Ver código fonte</span>
-                                    <i class="fas fa-arrow-right text-sm"></i>
-                                </a>
+                                <!-- Conteúdo -->
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3
+                                            class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-red-600 transition-colors">
+                                            Infinity Tech
+                                        </h3>
+                                        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                                            <i class="fas fa-shopping-cart text-red-600"></i>
+                                        </div>
+                                    </div>
+
+                                    <p class="text-gray-600 mb-6 text-sm md:text-base">
+                                        Plataforma e-commerce completa com sistema de avaliações, carrinho de compras e
+                                        painel administrativo.
+                                    </p>
+
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
+                                            HTML/CSS
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-100 text-indigo-600 text-xs font-medium rounded-full">
+                                            PHP
+                                        </span>
+                                        <span
+                                            class="px-3 py-1 bg-green-100 text-green-600 text-xs font-medium rounded-full">
+                                            MySQL
+                                        </span>
+                                    </div>
+
+                                    <a href="https://github.com/EmanuelTFF/infinity.git" target="_blank"
+                                        class="inline-flex items-center gap-2 text-red-600 font-medium hover:text-red-700 transition-colors">
+                                        <span>Ver código fonte</span>
+                                        <i class="fas fa-arrow-right text-sm"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const container = document.getElementById('projectsContainer');
-        const prevBtn = document.getElementById('carouselPrev');
-        const nextBtn = document.getElementById('carouselNext');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.getElementById('projectsContainer');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
 
-        let currentPosition = 0;
+            let currentPosition = 0;
 
-        // Calcula o deslocamento baseado no tamanho da tela
-        function getScrollAmount() {
-            const screenWidth = window.innerWidth;
-            if (screenWidth < 768) return 280 + 24; // card + gap
-            if (screenWidth < 1024) return 450 + 32;
-            return 500 + 32;
-        }
-
-        // Desabilita botões quando necessário
-        function updateButtons() {
-            const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
-            prevBtn.disabled = currentPosition === 0;
-            nextBtn.disabled = currentPosition <= -maxScroll;
-
-            // Aplica estilo quando desabilitado
-            if (prevBtn.disabled) {
-                prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                prevBtn.classList.remove('hover:bg-gray-50', 'hover:shadow-xl');
-            } else {
-                prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                prevBtn.classList.add('hover:bg-gray-50', 'hover:shadow-xl');
+            // Calcula o deslocamento baseado no tamanho da tela
+            function getScrollAmount() {
+                const screenWidth = window.innerWidth;
+                if (screenWidth < 768) return 280 + 24; // card + gap
+                if (screenWidth < 1024) return 450 + 32;
+                return 500 + 32;
             }
 
-            if (nextBtn.disabled) {
-                nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                nextBtn.classList.remove('hover:bg-gray-50', 'hover:shadow-xl');
-            } else {
-                nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                nextBtn.classList.add('hover:bg-gray-50', 'hover:shadow-xl');
+            // Desabilita botões quando necessário
+            function updateButtons() {
+                const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
+                prevBtn.disabled = currentPosition === 0;
+                nextBtn.disabled = currentPosition <= -maxScroll;
+
+                // Aplica estilo quando desabilitado
+                if (prevBtn.disabled) {
+                    prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    prevBtn.classList.remove('hover:bg-gray-50', 'hover:shadow-xl');
+                } else {
+                    prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    prevBtn.classList.add('hover:bg-gray-50', 'hover:shadow-xl');
+                }
+
+                if (nextBtn.disabled) {
+                    nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    nextBtn.classList.remove('hover:bg-gray-50', 'hover:shadow-xl');
+                } else {
+                    nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    nextBtn.classList.add('hover:bg-gray-50', 'hover:shadow-xl');
+                }
             }
-        }
 
-        // Função para mover o carrossel
-        function moveCarousel(direction) {
-            const scrollAmount = getScrollAmount();
-            const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
+            // Função para mover o carrossel
+            function moveCarousel(direction) {
+                const scrollAmount = getScrollAmount();
+                const maxScroll = container.scrollWidth - container.parentElement.clientWidth;
 
-            // Calcula nova posição
-            let newPosition = currentPosition + (direction * scrollAmount);
+                // Calcula nova posição
+                let newPosition = currentPosition + (direction * scrollAmount);
 
-            // Limita a posição
-            newPosition = Math.max(newPosition, -maxScroll);
-            newPosition = Math.min(newPosition, 0);
+                // Limita a posição
+                newPosition = Math.max(newPosition, -maxScroll);
+                newPosition = Math.min(newPosition, 0);
 
-            // Aplica a transformação
-            currentPosition = newPosition;
-            container.style.transform = `translateX(${currentPosition}px)`;
+                // Aplica a transformação
+                currentPosition = newPosition;
+                container.style.transform = `translateX(${currentPosition}px)`;
 
-            // Atualiza estado dos botões
+                // Atualiza estado dos botões
+                updateButtons();
+            }
+
+            // Event listeners para os botões
+            prevBtn.addEventListener('click', () => moveCarousel(1));
+            nextBtn.addEventListener('click', () => moveCarousel(-1));
+
+            // Atualiza botões no carregamento e no redimensionamento
             updateButtons();
-        }
+            window.addEventListener('resize', function () {
+                // Recalcula posição baseada no novo tamanho
+                const cardWidth = window.innerWidth < 768 ? 280 :
+                    window.innerWidth < 1024 ? 450 : 500;
+                const gap = window.innerWidth < 768 ? 24 : 32;
 
-        // Event listeners para os botões
-        prevBtn.addEventListener('click', () => moveCarousel(1));
-        nextBtn.addEventListener('click', () => moveCarousel(-1));
+                // Reajusta posição atual
+                const currentIndex = Math.round(Math.abs(currentPosition) / (cardWidth + gap));
+                currentPosition = -currentIndex * (getScrollAmount());
 
-        // Atualiza botões no carregamento e no redimensionamento
-        updateButtons();
-        window.addEventListener('resize', function () {
-            // Recalcula posição baseada no novo tamanho
-            const cardWidth = window.innerWidth < 768 ? 280 :
-                window.innerWidth < 1024 ? 450 : 500;
-            const gap = window.innerWidth < 768 ? 24 : 32;
-
-            // Reajusta posição atual
-            const currentIndex = Math.round(Math.abs(currentPosition) / (cardWidth + gap));
-            currentPosition = -currentIndex * (getScrollAmount());
-
-            // Aplica nova posição
-            container.style.transform = `translateX(${currentPosition}px)`;
-            updateButtons();
+                // Aplica nova posição
+                container.style.transform = `translateX(${currentPosition}px)`;
+                updateButtons();
+            });
         });
-    });
-</script>
+    </script>
 
 
     <!-- Contact Section -->
@@ -1743,197 +1855,152 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Inicializar AOS com configurações otimizadas para mobile
-        AOS.init({
-            duration: 600,
-            once: true,
-            offset: 30, // Muito mais sensível no mobile
-            delay: 0,
-            mirror: false,
-            disable: function () {
-                return window.innerWidth < 768 ? false : false; // Mantém ativo em todos os dispositivos
-            }
+
+        // SISTEMA DE CARREGAMENTO CORRIGIDO
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const loadingScreen = document.getElementById('loadingScreen');
+            const loadingBar = document.getElementById('loadingBar');
+
+            let progress = 0;
+
+            const interval = setInterval(() => {
+                progress += 2;
+                loadingBar.style.width = progress + "%";
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+
+                    setTimeout(() => {
+                        loadingScreen.classList.add('hidden');
+
+                        // Inicializar AOS após o carregamento
+                        initAOS();
+
+                        // Inicializar outras funcionalidades
+                        initOtherFeatures();
+
+                    }, 400);
+                }
+
+            }, 30);
         });
 
-        // Cursor personalizado - APENAS PARA DESKTOP
-        const cursor = document.querySelector('.custom-cursor');
-        if (cursor && window.innerWidth > 768) {
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-            });
 
-            // Efeito hover no cursor (só em desktop)
-            const hoverElements = document.querySelectorAll('a, button, .group');
-            hoverElements.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.classList.add('cursor-hover');
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('cursor-hover');
-                });
+        // Função para inicializar AOS
+        function initAOS() {
+            AOS.init({
+                duration: 600,
+                once: true,
+                offset: 30,
+                delay: 0,
+                mirror: false,
+                disable: function () {
+                    return window.innerWidth < 768 ? false : false;
+                }
             });
-        } else if (cursor) {
-            // Em mobile, esconde o cursor
-            cursor.style.display = 'none';
         }
 
-        // Menu mobile - CÓDIGO CORRIGIDO
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-        const body = document.body;
 
-        // Estado do menu
-        let isMenuOpen = false;
+        // Função para inicializar outras funcionalidades
+        function initOtherFeatures() {
 
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
+            // Cursor personalizado - APENAS PARA DESKTOP
+            const cursor = document.querySelector('.custom-cursor');
 
-            if (isMenuOpen) {
-                // Abrir menu
-                mobileMenu.classList.add('menu-open');
-                menuOverlay.classList.add('active');
-                menuBtn.classList.add('hamburger-open');
-                body.style.overflow = 'hidden'; // Previne scroll do body
-            } else {
-                // Fechar menu
+            if (cursor && window.innerWidth > 768) {
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+
+                const hoverElements = document.querySelectorAll('a, button, .group');
+
+                hoverElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursor.classList.add('cursor-hover');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursor.classList.remove('cursor-hover');
+                    });
+                });
+            } else if (cursor) {
+                cursor.style.display = 'none';
+            }
+
+
+            // Menu mobile - CÓDIGO ORIGINAL
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const body = document.body;
+
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('menu-open');
+                    menuOverlay.classList.add('active');
+                    menuBtn.classList.add('hamburger-open');
+                    body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.remove('menu-open');
+                    menuOverlay.classList.remove('active');
+                    menuBtn.classList.remove('hamburger-open');
+                    body.style.overflow = '';
+                }
+            }
+
+            function closeMenu() {
+                isMenuOpen = false;
                 mobileMenu.classList.remove('menu-open');
                 menuOverlay.classList.remove('active');
                 menuBtn.classList.remove('hamburger-open');
-                body.style.overflow = ''; // Restaura scroll
-            }
-        }
-
-        function closeMenu() {
-            isMenuOpen = false;
-            mobileMenu.classList.remove('menu-open');
-            menuOverlay.classList.remove('active');
-            menuBtn.classList.remove('hamburger-open');
-            body.style.overflow = ''; // Restaura scroll
-        }
-
-        // Event listeners
-        if (menuBtn) {
-            menuBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleMenu();
-            });
-        }
-
-        if (menuOverlay) {
-            menuOverlay.addEventListener('click', closeMenu);
-        }
-
-        // Fechar menu ao clicar em links do menu
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
-        // Fechar menu ao pressionar ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && isMenuOpen) {
-                closeMenu();
-            }
-        });
-
-        // Fechar menu ao redimensionar a janela
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768 && isMenuOpen) {
-                closeMenu();
-            }
-        });
-
-        // Smooth scroll para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Fecha menu mobile se aberto
-                    if (isMenuOpen) {
-                        closeMenu();
-                    }
-
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Efeito Glass no Menu ao scrollar
-        const mainHeader = document.getElementById('mainHeader');
-        let lastScrollTop = 0;
-
-        window.addEventListener('scroll', function () {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            // Adiciona classe quando scrollar mais de 50px
-            if (scrollTop > 50) {
-                mainHeader.classList.add('scrolled');
-            } else {
-                mainHeader.classList.remove('scrolled');
+                body.style.overflow = '';
             }
 
-            lastScrollTop = scrollTop;
-        });
-
-        // Navegação Vertical com Scroll Spy para Mobile
-        function initMobileScrollSpy() {
-            const sections = ['main', 'about', 'skills', 'work', 'contact'];
-            const dots = document.querySelectorAll('.mobile-dot');
-            const mobileNav = document.getElementById('mobileNavDots');
-
-            if (!mobileNav) return;
-
-            // Mostrar/ocultar baseado no tamanho da tela
-            function updateMobileNavVisibility() {
-                if (window.innerWidth <= 768) {
-                    mobileNav.style.display = 'flex';
-                } else {
-                    mobileNav.style.display = 'none';
-                }
-            }
-
-            // Atualizar dot ativo
-            function updateActiveDot() {
-                let currentSection = '';
-
-                sections.forEach(section => {
-                    const element = document.getElementById(section);
-                    if (!element) return;
-
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top <= 150 && rect.bottom >= 150) {
-                        currentSection = section;
-                    }
-                });
-
-                dots.forEach(dot => {
-                    dot.classList.remove('active');
-                    if (dot.getAttribute('data-target') === currentSection) {
-                        dot.classList.add('active');
-                    }
+            if (menuBtn) {
+                menuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMenu();
                 });
             }
 
-            // Scroll suave ao clicar nos dots
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const targetId = dot.getAttribute('data-target');
-                    const targetElement = document.getElementById(targetId);
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', closeMenu);
+            }
 
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isMenuOpen) {
+                    closeMenu();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768 && isMenuOpen) {
+                    closeMenu();
+                }
+            });
+
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        // Fecha menu mobile se aberto
-                        if (window.innerWidth <= 768) {
-                            if (isMenuOpen) {
-                                closeMenu();
-                            }
+
+                        if (isMenuOpen) {
+                            closeMenu();
                         }
 
                         window.scrollTo({
@@ -1944,31 +2011,98 @@
                 });
             });
 
-            // Atualizar visibilidade inicial
-            updateMobileNavVisibility();
 
-            // Atualizar ao scrollar
-            window.addEventListener('scroll', updateActiveDot);
+            // Header scroll effect
+            const mainHeader = document.getElementById('mainHeader');
 
-            // Atualizar ao redimensionar
-            window.addEventListener('resize', () => {
-                updateMobileNavVisibility();
-                updateActiveDot();
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > 50) {
+                    mainHeader.classList.add('scrolled');
+                } else {
+                    mainHeader.classList.remove('scrolled');
+                }
             });
 
-            // Inicializar
-            updateActiveDot();
-        }
 
-        // Anima as barras de progresso quando a seção entra na tela
-        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll Spy Mobile
+            function initMobileScrollSpy() {
+
+                const sections = ['main', 'about', 'skills', 'work', 'contact'];
+                const dots = document.querySelectorAll('.mobile-dot');
+                const mobileNav = document.getElementById('mobileNavDots');
+
+                if (!mobileNav) return;
+
+                function updateMobileNavVisibility() {
+                    if (window.innerWidth <= 768) {
+                        mobileNav.style.display = 'flex';
+                    } else {
+                        mobileNav.style.display = 'none';
+                    }
+                }
+
+                function updateActiveDot() {
+                    let currentSection = '';
+
+                    sections.forEach(section => {
+                        const element = document.getElementById(section);
+                        if (!element) return;
+
+                        const rect = element.getBoundingClientRect();
+                        if (rect.top <= 150 && rect.bottom >= 150) {
+                            currentSection = section;
+                        }
+                    });
+
+                    dots.forEach(dot => {
+                        dot.classList.remove('active');
+                        if (dot.getAttribute('data-target') === currentSection) {
+                            dot.classList.add('active');
+                        }
+                    });
+                }
+
+                dots.forEach(dot => {
+                    dot.addEventListener('click', () => {
+                        const targetId = dot.getAttribute('data-target');
+                        const targetElement = document.getElementById(targetId);
+
+                        if (targetElement) {
+                            if (window.innerWidth <= 768 && isMenuOpen) {
+                                closeMenu();
+                            }
+
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+
+                updateMobileNavVisibility();
+                window.addEventListener('scroll', updateActiveDot);
+                window.addEventListener('resize', () => {
+                    updateMobileNavVisibility();
+                    updateActiveDot();
+                });
+
+                updateActiveDot();
+            }
+
+
+            // Skills Animation
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const progressBars = entry.target.querySelectorAll('.skill-progress');
+
                         progressBars.forEach(bar => {
                             const width = bar.getAttribute('data-width') + '%';
                             bar.style.setProperty('--progress-width', width);
+
                             setTimeout(() => {
                                 bar.classList.add('animated');
                                 bar.style.width = width;
@@ -1986,7 +2120,6 @@
                 observer.observe(skillsSection);
             }
 
-            // Também anima quando clicar/selecionar
             const skillCards = document.querySelectorAll('.skill-card');
             skillCards.forEach(card => {
                 card.addEventListener('click', () => {
@@ -1999,136 +2132,15 @@
                     }
                 });
             });
-        });
 
-        // Carrossel com scroll natural
-        document.addEventListener('DOMContentLoaded', function () {
-            const carousel = document.getElementById('projectsCarousel');
-            const dots = document.querySelectorAll('.carousel-dot');
-            const prevBtn = document.querySelector('.carousel-prev');
-            const nextBtn = document.querySelector('.carousel-next');
+            initMobileScrollSpy();
 
-            if (!carousel) return;
-
-            // Configurar largura do card para cálculo
-            const cardWidth = window.innerWidth < 768 ? 280 : 400;
-            const gap = window.innerWidth < 768 ? 16 : 24; // 4 = 1rem = 16px
-
-            // Função para atualizar dots ativos
-            function updateActiveDot() {
-                const scrollLeft = carousel.scrollLeft;
-                const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
-
-                dots.forEach((dot, index) => {
-                    if (index === activeIndex) {
-                        dot.classList.add('active-dot');
-                    } else {
-                        dot.classList.remove('active-dot');
-                    }
-                });
-            }
-
-            // Event listener para scroll
-            carousel.addEventListener('scroll', updateActiveDot);
-
-            // Click nos dots
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    carousel.scrollTo({
-                        left: index * (cardWidth + gap),
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Botões de navegação
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    carousel.scrollBy({
-                        left: -(cardWidth + gap),
-                        behavior: 'smooth'
-                    });
-                });
-            }
-
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    carousel.scrollBy({
-                        left: cardWidth + gap,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-
-            // Suporte a arrastar (drag) no mobile/desktop
-            let isDragging = false;
-            let startX;
-            let scrollLeft;
-
-            carousel.addEventListener('mousedown', (e) => {
-                isDragging = true;
-                carousel.classList.add('cursor-grabbing');
-                startX = e.pageX - carousel.offsetLeft;
-                scrollLeft = carousel.scrollLeft;
-            });
-
-            carousel.addEventListener('mouseleave', () => {
-                isDragging = false;
-                carousel.classList.remove('cursor-grabbing');
-            });
-
-            carousel.addEventListener('mouseup', () => {
-                isDragging = false;
-                carousel.classList.remove('cursor-grabbing');
-            });
-
-            carousel.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-                e.preventDefault();
-                const x = e.pageX - carousel.offsetLeft;
-                const walk = (x - startX) * 2; // Velocidade do scroll
-                carousel.scrollLeft = scrollLeft - walk;
-            });
-
-            // Suporte a touch para mobile
-            carousel.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].pageX - carousel.offsetLeft;
-                scrollLeft = carousel.scrollLeft;
-            });
-
-            carousel.addEventListener('touchmove', (e) => {
-                e.preventDefault();
-                const x = e.touches[0].pageX - carousel.offsetLeft;
-                const walk = (x - startX) * 2;
-                carousel.scrollLeft = scrollLeft - walk;
-            });
-
-            // Inicializar dots
-            updateActiveDot();
-
-            // Adicionar mensagem de "deslize" para mobile
-            if (window.innerWidth < 768) {
-                const hint = document.createElement('div');
-                hint.className = 'text-center text-xs text-gray-500 mt-2 animate-pulse';
-                hint.textContent = '← Deslize para ver mais projetos →';
-                carousel.parentNode.insertBefore(hint, carousel.nextSibling);
-
-                // Remover após 5 segundos
-                setTimeout(() => {
-                    hint.style.opacity = '0';
-                    setTimeout(() => hint.remove(), 300);
-                }, 5000);
-            }
-        });
-
-        // Inicializar navegação vertical para mobile
-        initMobileScrollSpy();
-
-        // Forçar animações AOS quando a página carregar
-        window.addEventListener('load', function () {
             AOS.refresh();
-        });
+        }
+
+
     </script>
+
 </body>
 
 </html>
